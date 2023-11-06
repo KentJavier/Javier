@@ -1,0 +1,18 @@
+C:\Users\Admin\source\repos\Library System\Library System\bin\Debug\net6.0-windows\Library System.exe
+C:\Users\Admin\source\repos\Library System\Library System\bin\Debug\net6.0-windows\Library System.deps.json
+C:\Users\Admin\source\repos\Library System\Library System\bin\Debug\net6.0-windows\Library System.runtimeconfig.json
+C:\Users\Admin\source\repos\Library System\Library System\bin\Debug\net6.0-windows\Library System.dll
+C:\Users\Admin\source\repos\Library System\Library System\bin\Debug\net6.0-windows\Library System.pdb
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.AssemblyInfo.cs
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.dll
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\refint\Library System.dll
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.pdb
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library System.genruntimeconfig.cache
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\ref\Library System.dll
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library_System.LandingForm.resources
+C:\Users\Admin\source\repos\Library System\Library System\obj\Debug\net6.0-windows\Library_System.LoginForm.resources
