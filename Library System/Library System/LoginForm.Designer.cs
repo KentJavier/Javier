@@ -1,6 +1,6 @@
 ﻿namespace Library_System
 {
-    partial class LoginForm
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,112 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.txtLfUsername = new System.Windows.Forms.TextBox();
+            this.lblLfUsername = new System.Windows.Forms.Label();
+            this.lblLfPassword = new System.Windows.Forms.Label();
+            this.txtLfPassword = new System.Windows.Forms.TextBox();
+            this.btnLfLogin = new System.Windows.Forms.Button();
+            this.btnLfRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // panel1
+            // lblLogin
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(151)))), ((int)(((byte)(158)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(65, 90);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 222);
-            this.panel1.TabIndex = 0;
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.BackColor = System.Drawing.SystemColors.Control;
+            this.lblLogin.Font = new System.Drawing.Font("MS UI Gothic", 20F);
+            this.lblLogin.Location = new System.Drawing.Point(59, 36);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(88, 27);
+            this.lblLogin.TabIndex = 0;
+            this.lblLogin.Text = "LOGIN";
             // 
-            // label1
+            // txtLfUsername
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Sitka Banner", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(73, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(345, 78);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Library System";
+            this.txtLfUsername.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.txtLfUsername.Location = new System.Drawing.Point(21, 140);
+            this.txtLfUsername.Name = "txtLfUsername";
+            this.txtLfUsername.Size = new System.Drawing.Size(177, 27);
+            this.txtLfUsername.TabIndex = 1;
             // 
-            // label2
+            // lblLfUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Sitka Banner", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(72, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 29);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "USERNAME";
+            this.lblLfUsername.AutoSize = true;
+            this.lblLfUsername.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.lblLfUsername.Location = new System.Drawing.Point(20, 108);
+            this.lblLfUsername.Name = "lblLfUsername";
+            this.lblLfUsername.Size = new System.Drawing.Size(130, 24);
+            this.lblLfUsername.TabIndex = 2;
+            this.lblLfUsername.Text = "USERNAME";
             // 
-            // textBox1
+            // lblLfPassword
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(221)))));
-            this.textBox1.Location = new System.Drawing.Point(72, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 23);
-            this.textBox1.TabIndex = 1;
+            this.lblLfPassword.AutoSize = true;
+            this.lblLfPassword.Font = new System.Drawing.Font("MS UI Gothic", 18F);
+            this.lblLfPassword.Location = new System.Drawing.Point(20, 190);
+            this.lblLfPassword.Name = "lblLfPassword";
+            this.lblLfPassword.Size = new System.Drawing.Size(134, 24);
+            this.lblLfPassword.TabIndex = 4;
+            this.lblLfPassword.Text = "PASSWORD";
             // 
-            // textBox2
+            // txtLfPassword
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(221)))));
-            this.textBox2.Location = new System.Drawing.Point(72, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 23);
-            this.textBox2.TabIndex = 3;
+            this.txtLfPassword.Font = new System.Drawing.Font("MS UI Gothic", 15F);
+            this.txtLfPassword.Location = new System.Drawing.Point(21, 225);
+            this.txtLfPassword.Name = "txtLfPassword";
+            this.txtLfPassword.Size = new System.Drawing.Size(177, 27);
+            this.txtLfPassword.TabIndex = 3;
             // 
-            // label3
+            // btnLfLogin
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Banner", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(72, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 29);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "PASSWORD";
+            this.btnLfLogin.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.btnLfLogin.Location = new System.Drawing.Point(24, 291);
+            this.btnLfLogin.Name = "btnLfLogin";
+            this.btnLfLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLfLogin.TabIndex = 5;
+            this.btnLfLogin.Text = "LOGIN";
+            this.btnLfLogin.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnLfRegister
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(221)))));
-            this.button1.Font = new System.Drawing.Font("Sitka Banner", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(89, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLfRegister.Font = new System.Drawing.Font("MS UI Gothic", 10F);
+            this.btnLfRegister.Location = new System.Drawing.Point(116, 291);
+            this.btnLfRegister.Name = "btnLfRegister";
+            this.btnLfRegister.Size = new System.Drawing.Size(82, 23);
+            this.btnLfRegister.TabIndex = 6;
+            this.btnLfRegister.Text = "REGISTER";
+            this.btnLfRegister.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // frmLogin
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(235)))), ((int)(((byte)(221)))));
-            this.button2.Font = new System.Drawing.Font("Sitka Banner", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(182, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 28);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "REGISTER";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            this.ClientSize = new System.Drawing.Size(482, 342);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Name = "LoginForm";
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(217, 354);
+            this.Controls.Add(this.btnLfRegister);
+            this.Controls.Add(this.btnLfLogin);
+            this.Controls.Add(this.lblLfPassword);
+            this.Controls.Add(this.txtLfPassword);
+            this.Controls.Add(this.lblLfUsername);
+            this.Controls.Add(this.txtLfUsername);
+            this.Controls.Add(this.lblLogin);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Text = "Login Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,13 +129,13 @@
 
         #endregion
 
-        private Panel panel1;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox2;
-        private Label label3;
-        private TextBox textBox1;
-        private Label label2;
-        private Label label1;
+        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.TextBox txtLfUsername;
+        private System.Windows.Forms.Label lblLfUsername;
+        private System.Windows.Forms.Label lblLfPassword;
+        private System.Windows.Forms.TextBox txtLfPassword;
+        private System.Windows.Forms.Button btnLfLogin;
+        private System.Windows.Forms.Button btnLfRegister;
     }
 }
+

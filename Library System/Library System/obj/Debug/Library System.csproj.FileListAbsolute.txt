@@ -1,0 +1,15 @@
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\bin\Debug\Library System.exe.config
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\bin\Debug\Library System.exe
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\bin\Debug\Library System.pdb
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.csproj.AssemblyReference.cache
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.csproj.SuggestedBindingRedirects.cache
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library_System.Properties.Resources.resources
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.csproj.GenerateResource.cache
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.csproj.CoreCompileInputs.cache
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.exe
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.pdb
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library_System.frmLogin.resources
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library_System.frmRegister.resources
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\bin\Debug\EntityFramework.dll
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\bin\Debug\EntityFramework.xml
+C:\Users\a\Documents\Library System - DBSYS\Library System\Library System\obj\Debug\Library System.csproj.CopyComplete

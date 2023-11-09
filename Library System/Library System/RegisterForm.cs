@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Library_System
 {
-    public partial class frmLogin : Form
+    public partial class frmRegister : Form
     {
-        public frmLogin()
+        public frmRegister()
         {
             InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
