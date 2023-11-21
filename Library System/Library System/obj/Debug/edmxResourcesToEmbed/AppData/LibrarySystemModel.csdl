@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminContactNum" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Admin_Users" FromRole="Admin" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookQuantity" Type="Int32" />
+    <NavigationProperty Name="Transaction" Relationship="Self.FK_Transaction_Book" FromRole="Book" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffIdNumber" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Staff_Users" FromRole="Staff" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StudentLName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StudentIdNumber" Type="Int32" />
+    <Property Name="Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Student_Users" FromRole="Student" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="BookId" Type="Int32" />
+    <Property Name="TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_Transaction_Book" FromRole="Transaction" ToRole="Book" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Transaction_Users" FromRole="Transaction" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK_Admin_Users" FromRole="Users" ToRole="Admin" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Users" FromRole="Users" ToRole="Staff" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Student_Users" FromRole="Users" ToRole="Student" />
+    <NavigationProperty Name="Transaction" Relationship="Self.FK_Transaction_Users" FromRole="Users" ToRole="Transaction" />
+  </EntityType>
+  <Association Name="FK_Admin_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaction_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Admin_Users" Association="Self.FK_Admin_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Admin" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Book" Association="Self.FK_Transaction_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Users" Association="Self.FK_Staff_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Users" Association="Self.FK_Student_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaction_Users" Association="Self.FK_Transaction_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
