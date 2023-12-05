@@ -1,148 +1,199 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="LibrarySystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Admin">
+  <EntityType Name="Admins">
     <Key>
       <PropertyRef Name="AdminId" />
     </Key>
     <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AdminFName" Type="varchar" MaxLength="50" />
-    <Property Name="AdminLName" Type="varchar" MaxLength="50" />
-    <Property Name="AdminContactNum" Type="int" />
+    <Property Name="AdminFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminLastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminUsername" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminRegistrationDate" Type="date" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Book">
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AuthorBDay" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Books">
     <Key>
       <PropertyRef Name="BookId" />
     </Key>
     <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BookTitle" Type="varchar" MaxLength="50" />
-    <Property Name="BookAuthor" Type="varchar" MaxLength="50" />
-    <Property Name="BookQuantity" Type="int" />
+    <Property Name="BookTitle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookAuthorId" Type="int" Nullable="false" />
+    <Property Name="BookGenre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookCopies" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Staff">
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberLastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberUsername" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberRegistrationDate" Type="date" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staffs">
     <Key>
       <PropertyRef Name="StaffId" />
     </Key>
     <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StaffFName" Type="varchar" MaxLength="50" />
-    <Property Name="StaffLName" Type="varchar" MaxLength="50" />
-    <Property Name="StaffIdNumber" Type="int" />
+    <Property Name="StaffFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffLastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffUsername" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StaffRegistrationDate" Type="date" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Student">
-    <Key>
-      <PropertyRef Name="StudentId" />
-    </Key>
-    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StudentFName" Type="varchar" MaxLength="50" />
-    <Property Name="StudentLName" Type="varchar" MaxLength="50" />
-    <Property Name="StudentIdNumber" Type="int" />
-    <Property Name="Course" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Transaction">
+  <EntityType Name="Transactions">
     <Key>
       <PropertyRef Name="TransactionId" />
     </Key>
     <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="int" />
-    <Property Name="BookId" Type="int" />
-    <Property Name="TransactionType" Type="varchar" MaxLength="50" />
-    <Property Name="TransactionDate" Type="date" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="TransactionType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="StaffId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="Username" Type="varchar" MaxLength="50" />
-    <Property Name="Password" Type="varchar" MaxLength="50" />
-    <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="UserType" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <Association Name="FK_Admin_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+  <Association Name="FK_Admins_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="UserId" />
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
       </Principal>
-      <Dependent Role="Admin">
-        <PropertyRef Name="AdminId" />
+      <Dependent Role="Admins">
+        <PropertyRef Name="RoleId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+  <Association Name="FK_Books_Authors1">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="UserId" />
+      <Principal Role="Authors">
+        <PropertyRef Name="AuthorId" />
       </Principal>
-      <Dependent Role="Staff">
+      <Dependent Role="Books">
+        <PropertyRef Name="BookAuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Members_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staffs_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Staffs">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Members">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Staffs">
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staffs">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Transactions">
         <PropertyRef Name="StaffId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Student_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="Student">
-        <PropertyRef Name="StudentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Transaction_Book">
-    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
-    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="BookId" />
-      </Principal>
-      <Dependent Role="Transaction">
-        <PropertyRef Name="BookId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Transaction_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="Transaction">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="LibrarySystemModelStoreContainer">
-    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Admin_Users" Association="Self.FK_Admin_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Admin" EntitySet="Admin" />
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Admins_Roles" Association="Self.FK_Admins_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Admins" EntitySet="Admins" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Users" Association="Self.FK_Staff_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Staff" EntitySet="Staff" />
+    <AssociationSet Name="FK_Books_Authors1" Association="Self.FK_Books_Authors1">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK_Student_Users" Association="Self.FK_Student_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Student" EntitySet="Student" />
+    <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Members" EntitySet="Members" />
     </AssociationSet>
-    <AssociationSet Name="FK_Transaction_Book" Association="Self.FK_Transaction_Book">
-      <End Role="Book" EntitySet="Book" />
-      <End Role="Transaction" EntitySet="Transaction" />
+    <AssociationSet Name="FK_Staffs_Roles" Association="Self.FK_Staffs_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Staffs" EntitySet="Staffs" />
     </AssociationSet>
-    <AssociationSet Name="FK_Transaction_Users" Association="Self.FK_Transaction_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Transaction" EntitySet="Transaction" />
+    <AssociationSet Name="FK_Transactions_Books" Association="Self.FK_Transactions_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Members" Association="Self.FK_Transactions_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Staffs" Association="Self.FK_Transactions_Staffs">
+      <End Role="Staffs" EntitySet="Staffs" />
+      <End Role="Transactions" EntitySet="Transactions" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

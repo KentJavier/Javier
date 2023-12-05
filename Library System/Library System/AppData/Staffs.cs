@@ -12,21 +12,21 @@ namespace Library_System.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class Members
+    public partial class Staffs
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Members()
+        public Staffs()
         {
             this.Transactions = new HashSet<Transactions>();
         }
     
-        public int MemberId { get; set; }
-        public string MemberFirstName { get; set; }
-        public string MemberLastName { get; set; }
-        public string MemberEmail { get; set; }
-        public string MemberUsername { get; set; }
-        public string MemberPassword { get; set; }
-        public System.DateTime MemberRegistrationDate { get; set; }
+        public int StaffId { get; set; }
+        public string StaffFirstName { get; set; }
+        public string StaffLastName { get; set; }
+        public string StaffEmail { get; set; }
+        public string StaffUsername { get; set; }
+        public string StaffPassword { get; set; }
+        public System.DateTime StaffRegistrationDate { get; set; }
         public int RoleId { get; set; }
     
         public virtual Roles Roles { get; set; }

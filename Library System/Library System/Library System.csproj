@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppData\Admins.cs">
+      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Authors.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
@@ -77,6 +80,12 @@
       <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="AppData\Members.cs">
+      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\Roles.cs">
+      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\Staffs.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Transactions.cs">

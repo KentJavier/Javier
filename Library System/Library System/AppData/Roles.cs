@@ -12,25 +12,24 @@ namespace Library_System.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class Members
+    public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Members()
+        public Roles()
         {
-            this.Transactions = new HashSet<Transactions>();
+            this.Admins = new HashSet<Admins>();
+            this.Members = new HashSet<Members>();
+            this.Staffs = new HashSet<Staffs>();
         }
     
-        public int MemberId { get; set; }
-        public string MemberFirstName { get; set; }
-        public string MemberLastName { get; set; }
-        public string MemberEmail { get; set; }
-        public string MemberUsername { get; set; }
-        public string MemberPassword { get; set; }
-        public System.DateTime MemberRegistrationDate { get; set; }
         public int RoleId { get; set; }
+        public string RoleName { get; set; }
     
-        public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transactions> Transactions { get; set; }
+        public virtual ICollection<Admins> Admins { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Members> Members { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Staffs> Staffs { get; set; }
     }
 }

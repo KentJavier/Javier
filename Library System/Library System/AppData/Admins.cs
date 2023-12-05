@@ -12,17 +12,17 @@ namespace Library_System.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class Transactions
+    public partial class Admins
     {
-        public int TransactionId { get; set; }
-        public int MemberId { get; set; }
-        public int BookId { get; set; }
-        public string TransactionType { get; set; }
-        public System.DateTime TransactionDate { get; set; }
-        public int StaffId { get; set; }
+        public int AdminId { get; set; }
+        public string AdminFirstName { get; set; }
+        public string AdminLastName { get; set; }
+        public string Email { get; set; }
+        public string AdminUsername { get; set; }
+        public string AdminPassword { get; set; }
+        public System.DateTime AdminRegistrationDate { get; set; }
+        public int RoleId { get; set; }
     
-        public virtual Books Books { get; set; }
-        public virtual Members Members { get; set; }
-        public virtual Staffs Staffs { get; set; }
+        public virtual Roles Roles { get; set; }
     }
 }
