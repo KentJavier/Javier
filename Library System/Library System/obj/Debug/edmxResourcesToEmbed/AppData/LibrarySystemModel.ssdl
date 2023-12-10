@@ -7,7 +7,7 @@
     <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AdminFirstName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AdminLastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminEmail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AdminUsername" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AdminPassword" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AdminRegistrationDate" Type="date" Nullable="false" />

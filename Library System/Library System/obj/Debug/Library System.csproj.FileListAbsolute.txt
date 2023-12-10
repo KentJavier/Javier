@@ -12,5 +12,5 @@ C:\Users\a\Documents\GitHub\Javier\Library System\Library System\bin\Debug\Entit
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\bin\Debug\EntityFramework.xml
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library System.csproj.CopyComplete
-C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.Login.resources
-C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.btnRegisterAcc.resources
+C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmLogin.resources
+C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmRegister.resources

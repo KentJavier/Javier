@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Library_System
 {
-    public partial class btnRegisterAcc : Form
+    public partial class frmLogin : Form
     {
-        public btnRegisterAcc()
+        public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void lblRegisterHere_Click(object sender, EventArgs e)
+        {
+            frmRegister registerForm = new frmRegister();
+
+            this.Hide();
+
+            registerForm.ShowDialog();
+
+            this.Close();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Library_System.AppData
         public int AdminId { get; set; }
         public string AdminFirstName { get; set; }
         public string AdminLastName { get; set; }
-        public string Email { get; set; }
+        public string AdminEmail { get; set; }
         public string AdminUsername { get; set; }
         public string AdminPassword { get; set; }
         public System.DateTime AdminRegistrationDate { get; set; }

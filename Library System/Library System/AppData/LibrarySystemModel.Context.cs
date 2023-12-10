@@ -25,12 +25,12 @@ namespace Library_System.AppData
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Transactions> Transactions { get; set; }
         public virtual DbSet<Admins> Admins { get; set; }
         public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Books> Books { get; set; }
         public virtual DbSet<Members> Members { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Staffs> Staffs { get; set; }
-        public virtual DbSet<Transactions> Transactions { get; set; }
     }
 }

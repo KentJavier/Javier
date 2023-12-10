@@ -1,6 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LibrarySystemModelStoreContainer" CdmEntityContainer="LibrarySystemEntities">
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="LibrarySystemModel.Admins">
         <MappingFragment StoreEntitySet="Admins">
@@ -8,7 +20,7 @@
           <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
           <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
           <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
           <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
           <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
           <ScalarProperty Name="AdminId" ColumnName="AdminId" />
@@ -68,18 +80,6 @@
           <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
           <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
           <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Transactions">
-      <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
-        <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
