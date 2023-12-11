@@ -15,10 +15,11 @@ namespace Library_System
 
     public enum UserRole
     {
+        None,
         Admin = 1,
         Staff = 2,
         Member = 3
-    }   
+    }
 
     public class UserRepository
     {
@@ -84,6 +85,44 @@ namespace Library_System
             {
                 Console.WriteLine($"Error: {ex}");
                 return ErrorCode.Error;
+            }
+        }
+
+        public bool Authentication(string username, string password, out UserRole role)
+        {
+            try
+            {
+                using (var db = new LibrarySystemEntities())
+                {
+                    var admin = db.Admins.FirstOrDefault(a => a.AdminUsername == username && a.AdminPassword == password);
+                    if (admin != null)
+                    {
+                        role = UserRole.Admin;
+                        return true;
+                    }
+
+                    var staff = db.Staffs.FirstOrDefault(s => s.StaffUsername == username && s.StaffPassword == password);
+                    if (staff != null)
+                    {
+                        role = UserRole.Staff;
+                        return true;
+                    }
+
+                    var member = db.Members.FirstOrDefault(m => m.MemberUsername == username && m.MemberPassword == password);
+                    if (member != null)
+                    {
+                        role = UserRole.Member;
+                        return true;
+                    }
+
+                    role = UserRole.None;
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                role = UserRole.None;
+                return false;
             }
         }
     }

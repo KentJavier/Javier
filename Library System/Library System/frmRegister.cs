@@ -22,8 +22,8 @@ namespace Library_System
 
             // Use enum values for roles
             cmbRoles.Items.Add(UserRole.Admin);
-            cmbRoles.Items.Add(UserRole.Member);
             cmbRoles.Items.Add(UserRole.Staff);
+            cmbRoles.Items.Add(UserRole.Member);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

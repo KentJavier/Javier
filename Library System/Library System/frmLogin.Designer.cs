@@ -41,6 +41,7 @@
             this.txtUsernameLogin = new System.Windows.Forms.TextBox();
             this.lblUsernameLogin = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.cbShowPass = new System.Windows.Forms.CheckBox();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,6 +51,7 @@
             // pnlLogin
             // 
             this.pnlLogin.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlLogin.Controls.Add(this.cbShowPass);
             this.pnlLogin.Controls.Add(this.lblRegisterHere);
             this.pnlLogin.Controls.Add(this.lblWelcome);
             this.pnlLogin.Controls.Add(this.lblReminder);
@@ -129,22 +131,24 @@
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnLogin.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnLogin.Location = new System.Drawing.Point(169, 351);
+            this.btnLogin.Location = new System.Drawing.Point(54, 317);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(104, 41);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPasswordLogin
             // 
             this.txtPasswordLogin.BackColor = System.Drawing.Color.White;
             this.txtPasswordLogin.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtPasswordLogin.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtPasswordLogin.Location = new System.Drawing.Point(65, 267);
+            this.txtPasswordLogin.Location = new System.Drawing.Point(54, 267);
             this.txtPasswordLogin.Name = "txtPasswordLogin";
             this.txtPasswordLogin.Size = new System.Drawing.Size(322, 33);
             this.txtPasswordLogin.TabIndex = 2;
+            this.txtPasswordLogin.UseSystemPasswordChar = true;
             // 
             // lblPasswordLogin
             // 
@@ -162,7 +166,7 @@
             this.txtUsernameLogin.BackColor = System.Drawing.Color.White;
             this.txtUsernameLogin.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtUsernameLogin.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtUsernameLogin.Location = new System.Drawing.Point(65, 165);
+            this.txtUsernameLogin.Location = new System.Drawing.Point(54, 165);
             this.txtUsernameLogin.Name = "txtUsernameLogin";
             this.txtUsernameLogin.Size = new System.Drawing.Size(322, 33);
             this.txtUsernameLogin.TabIndex = 1;
@@ -188,6 +192,19 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 11;
             this.pbLogo.TabStop = false;
+            // 
+            // cbShowPass
+            // 
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F);
+            this.cbShowPass.ForeColor = System.Drawing.Color.White;
+            this.cbShowPass.Location = new System.Drawing.Point(251, 317);
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Size = new System.Drawing.Size(136, 21);
+            this.cbShowPass.TabIndex = 12;
+            this.cbShowPass.Text = "Show Password";
+            this.cbShowPass.UseVisualStyleBackColor = true;
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
             // 
             // frmLogin
             // 
@@ -222,6 +239,7 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label lblRegisterHere;
         private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.CheckBox cbShowPass;
     }
 }
 
