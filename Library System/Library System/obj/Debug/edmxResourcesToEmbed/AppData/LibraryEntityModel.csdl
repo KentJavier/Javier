@@ -12,7 +12,7 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Admins" EntitySet="Admins" />
     </AssociationSet>
-    <AssociationSet Name="FK_Books_Authors1" Association="LibrarySystemModel.FK_Books_Authors1">
+    <AssociationSet Name="FK_Books_Authors" Association="LibrarySystemModel.FK_Books_Authors">
       <End Role="Authors" EntitySet="Authors" />
       <End Role="Books" EntitySet="Books" />
     </AssociationSet>
@@ -47,7 +47,7 @@
     <Property Name="AdminEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AdminUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AdminPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AdminRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AdminRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
   </EntityType>
@@ -58,7 +58,7 @@
     <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AuthorBDay" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors1" FromRole="Authors" ToRole="Books" />
+    <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
   </EntityType>
   <EntityType Name="Books">
     <Key>
@@ -69,7 +69,7 @@
     <Property Name="BookAuthorId" Type="Int32" Nullable="false" />
     <Property Name="BookGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="BookCopies" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors1" FromRole="Books" ToRole="Authors" />
+    <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
     <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
   </EntityType>
   <EntityType Name="Members">
@@ -82,7 +82,7 @@
     <Property Name="MemberEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MemberUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MemberPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MemberRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MemberRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
     <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
@@ -91,7 +91,7 @@
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
     <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Admins" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
     <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
@@ -107,7 +107,7 @@
     <Property Name="StaffEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StaffUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StaffPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="StaffRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="StaffRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
     <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
@@ -138,7 +138,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Books_Authors1">
+  <Association Name="FK_Books_Authors">
     <End Type="LibrarySystemModel.Authors" Role="Authors" Multiplicity="1" />
     <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="*" />
     <ReferentialConstraint>

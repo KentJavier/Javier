@@ -1,3 +1,12 @@
 CREATE DATABASE LibrarySystem
 
 USE LibrarySystem
+
+DBCC CHECKIDENT ('Admins', RESEED, 1);
+DBCC CHECKIDENT ('Staffs', RESEED, 1);
+DBCC CHECKIDENT ('Members', RESEED, 1);
+
+DELETE FROM Admins
+DELETE FROM Staffs
+DELETE FROM Members
+

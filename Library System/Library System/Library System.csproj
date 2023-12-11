@@ -56,40 +56,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppData\Admins.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Authors.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Books.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\LibrarySystemModel.Context.cs">
+    <Compile Include="AppData\LibraryEntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibrarySystemModel.Context.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\LibrarySystemModel.cs">
+    <Compile Include="AppData\LibraryEntityModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\LibrarySystemModel.Designer.cs">
+    <Compile Include="AppData\LibraryEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
+      <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="AppData\Members.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Roles.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Staffs.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AppData\Transactions.cs">
-      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -121,12 +121,12 @@
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="AppData\LibrarySystemModel.edmx">
+    <EntityDeploy Include="AppData\LibraryEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LibrarySystemModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>LibraryEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AppData\LibrarySystemModel.edmx.diagram">
-      <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
+    <None Include="AppData\LibraryEntityModel.edmx.diagram">
+      <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -146,15 +146,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\LibrarySystemModel.Context.tt">
+    <Content Include="AppData\LibraryEntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
-      <LastGenOutput>LibrarySystemModel.Context.cs</LastGenOutput>
+      <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="AppData\LibrarySystemModel.tt">
+    <Content Include="AppData\LibraryEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
-      <LastGenOutput>LibrarySystemModel.cs</LastGenOutput>
+      <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryEntityModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -18,81 +18,57 @@ namespace Library_System
         public frmRegister()
         {
             InitializeComponent();
-
             userRepo = new UserRepository();
+
+            // Use enum values for roles
+            cmbRoles.Items.Add(UserRole.Admin);
+            cmbRoles.Items.Add(UserRole.Member);
+            cmbRoles.Items.Add(UserRole.Staff);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtFirstName.Text)) 
+            if (String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text) || dtpRegistrationDate.Value == dtpRegistrationDate.MinDate || cmbRoles.SelectedIndex == -1)
             {
                 errorProvider1.Clear();
                 errorProvider1.SetError(txtFirstName, "Your first name is required!");
-                return;
-            }
-
-            if (String.IsNullOrEmpty(txtLastName.Text))
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(txtLastName, "Your last name is required!");
-                return;
-            }
-
-            if (String.IsNullOrEmpty(txtEmail.Text))
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(txtEmail, "Your email is required!");
-                return;
-            }
-
-            if (String.IsNullOrEmpty(txtUsername.Text))
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(txtUsername, "Your username is required!");
-                return;
-            }
-
-            if (String.IsNullOrEmpty(txtPassword.Text))
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(txtPassword, "Your password is required!");
-                return;
-            }
-
-            if (dtpRegistrationDate.Value == dtpRegistrationDate.MinDate)
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(dtpRegistrationDate, "Please select a valid registration date!");
-                return;
-            }
-
-            if (cmbRoles.SelectedIndex == -1)
-            {
-                errorProvider1.Clear();
                 errorProvider1.SetError(cmbRoles, "Please select a role!");
                 return;
             }
 
             errorProvider1.Clear();
 
-            ErrorCode res = userRepo.Register(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, dtpRegistrationDate.Value, cmbRoles.SelectedIndex);
-            if (res == ErrorCode.Success)
+            try
             {
-                txtFirstName.Clear();
-                txtLastName.Clear();
-                txtEmail.Clear();
-                txtUsername.Clear();
-                txtPassword.Clear();
-                dtpRegistrationDate.Value = DateTime.Now;
-                cmbRoles.SelectedIndex = -1;
+                UserRole selectedRole = (UserRole)cmbRoles.SelectedItem;
+                ErrorCode res = userRepo.Register(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, dtpRegistrationDate.Value, (int)selectedRole);
 
-                MessageBox.Show("Account Registered succesfully!");
+                if (res == ErrorCode.Success)
+                {
+                    txtFirstName.Clear();
+                    txtLastName.Clear();
+                    txtEmail.Clear();
+                    txtUsername.Clear();
+                    txtPassword.Clear();
+                    dtpRegistrationDate.Value = DateTime.Now;
+                    cmbRoles.SelectedIndex = -1;
+
+                    MessageBox.Show("Account Registered successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Error. Account registration failed. ");
+                }
             }
-            else 
+            catch (Exception ex)
             {
-                MessageBox.Show("Error. Account registration failed.");
+                Console.WriteLine($"Error: {ex}");
             }
-
         }
     }
 }

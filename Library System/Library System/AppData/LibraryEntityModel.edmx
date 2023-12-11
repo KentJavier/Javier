@@ -15,7 +15,7 @@
           <Property Name="AdminEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AdminUsername" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AdminPassword" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="AdminRegistrationDate" Type="date" Nullable="false" />
+          <Property Name="AdminRegistrationDate" Type="datetime" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Authors">
@@ -46,14 +46,14 @@
           <Property Name="MemberEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MemberUsername" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MemberPassword" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MemberRegistrationDate" Type="date" Nullable="false" />
+          <Property Name="MemberRegistrationDate" Type="datetime" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Staffs">
@@ -66,7 +66,7 @@
           <Property Name="StaffEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="StaffUsername" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="StaffPassword" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="StaffRegistrationDate" Type="date" Nullable="false" />
+          <Property Name="StaffRegistrationDate" Type="datetime" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Transactions">
@@ -92,7 +92,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Books_Authors1">
+        <Association Name="FK_Books_Authors">
           <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
           <End Role="Books" Type="Self.Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +176,7 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Admins" EntitySet="Admins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Books_Authors1" Association="Self.FK_Books_Authors1">
+          <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
             <End Role="Authors" EntitySet="Authors" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
@@ -206,18 +206,18 @@
     <edmx:ConceptualModels>
       <Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
           <EntitySet Name="Admins" EntityType="LibrarySystemModel.Admins" />
           <EntitySet Name="Authors" EntityType="LibrarySystemModel.Authors" />
           <EntitySet Name="Books" EntityType="LibrarySystemModel.Books" />
           <EntitySet Name="Members" EntityType="LibrarySystemModel.Members" />
           <EntitySet Name="Roles" EntityType="LibrarySystemModel.Roles" />
           <EntitySet Name="Staffs" EntityType="LibrarySystemModel.Staffs" />
+          <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
           <AssociationSet Name="FK_Admins_Roles" Association="LibrarySystemModel.FK_Admins_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Admins" EntitySet="Admins" />
           </AssociationSet>
-          <AssociationSet Name="FK_Books_Authors1" Association="LibrarySystemModel.FK_Books_Authors1">
+          <AssociationSet Name="FK_Books_Authors" Association="LibrarySystemModel.FK_Books_Authors">
             <End Role="Authors" EntitySet="Authors" />
             <End Role="Books" EntitySet="Books" />
           </AssociationSet>
@@ -241,21 +241,7 @@
             <End Role="Staffs" EntitySet="Staffs" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Transactions">
-          <Key>
-            <PropertyRef Name="TransactionId" />
-          </Key>
-          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MemberId" Type="Int32" Nullable="false" />
-          <Property Name="BookId" Type="Int32" Nullable="false" />
-          <Property Name="TransactionType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="StaffId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
-          <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
-          <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
-          </EntityType>
+        </EntityContainer>
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -266,7 +252,7 @@
           <Property Name="AdminEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AdminUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AdminPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AdminRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AdminRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
         </EntityType>
@@ -277,7 +263,7 @@
           <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AuthorBDay" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors1" FromRole="Authors" ToRole="Books" />
+          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
         </EntityType>
         <EntityType Name="Books">
           <Key>
@@ -288,7 +274,7 @@
           <Property Name="BookAuthorId" Type="Int32" Nullable="false" />
           <Property Name="BookGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="BookCopies" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors1" FromRole="Books" ToRole="Authors" />
+          <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Members">
@@ -301,7 +287,7 @@
           <Property Name="MemberEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MemberUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MemberPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MemberRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MemberRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
           <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
@@ -310,7 +296,7 @@
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Admins" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
           <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
@@ -326,10 +312,24 @@
           <Property Name="StaffEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StaffUsername" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StaffPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="StaffRegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StaffRegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
           <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
+          <Property Name="BookId" Type="Int32" Nullable="false" />
+          <Property Name="TransactionType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StaffId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
+          <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
+          <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
         </EntityType>
         <Association Name="FK_Admins_Roles">
           <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="1" />
@@ -343,7 +343,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Books_Authors1">
+        <Association Name="FK_Books_Authors">
           <End Type="LibrarySystemModel.Authors" Role="Authors" Multiplicity="1" />
           <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="*" />
           <ReferentialConstraint>
@@ -421,18 +421,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="LibrarySystemModelStoreContainer" CdmEntityContainer="LibrarySystemEntities">
-          <EntitySetMapping Name="Transactions">
-            <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
-              <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="LibrarySystemModel.Admins">
               <MappingFragment StoreEntitySet="Admins">
@@ -500,6 +488,18 @@
                 <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
                 <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
                 <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
