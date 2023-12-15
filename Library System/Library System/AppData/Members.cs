@@ -26,8 +26,8 @@ namespace Library_System.AppData
         public string MemberEmail { get; set; }
         public string MemberUsername { get; set; }
         public string MemberPassword { get; set; }
-        public System.DateTime MemberRegistrationDate { get; set; }
-        public int RoleId { get; set; }
+        public Nullable<System.DateTime> MemberRegistrationDate { get; set; }
+        public Nullable<int> RoleId { get; set; }
     
         public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

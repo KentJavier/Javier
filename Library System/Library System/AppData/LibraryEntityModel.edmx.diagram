@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d6954ce2b7194a47b75ae57482770c33" Name="Diagram1">
-        <EntityTypeShape EntityType="LibrarySystemModel.Admins" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="LibrarySystemModel.Authors" Width="1.5" PointX="0.75" PointY="13.5" />
-        <EntityTypeShape EntityType="LibrarySystemModel.Books" Width="1.5" PointX="3" PointY="13.25" />
-        <EntityTypeShape EntityType="LibrarySystemModel.Members" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Admins" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Authors" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Books" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Members" Width="1.5" PointX="3" PointY="4.875" />
         <EntityTypeShape EntityType="LibrarySystemModel.Roles" Width="1.5" PointX="0.75" PointY="5.375" />
-        <EntityTypeShape EntityType="LibrarySystemModel.Staffs" Width="1.5" PointX="3" PointY="1.375" />
-        <EntityTypeShape EntityType="LibrarySystemModel.Transactions" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Staffs" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="LibrarySystemModel.Transactions" Width="1.5" PointX="5.25" PointY="6.75" />
         <AssociationConnector Association="LibrarySystemModel.FK_Admins_Roles" />
         <AssociationConnector Association="LibrarySystemModel.FK_Books_Authors" />
         <AssociationConnector Association="LibrarySystemModel.FK_Transactions_Books" />

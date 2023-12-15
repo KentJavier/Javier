@@ -20,12 +20,12 @@ namespace Library_System
             InitializeComponent();
             userRepo = new UserRepository();
 
-            // Use enum values for roles
+            // Use enum values for roles    
             cmbRoles.Items.Add(UserRole.Admin);
             cmbRoles.Items.Add(UserRole.Staff);
             cmbRoles.Items.Add(UserRole.Member);
         }
-
+        // Provides error warning if textbox is blank, also sends the user info to the sql table
         private void btnRegister_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text) || dtpRegistrationDate.Value == dtpRegistrationDate.MinDate || cmbRoles.SelectedIndex == -1)
@@ -69,6 +69,11 @@ namespace Library_System
             {
                 Console.WriteLine($"Error: {ex}");
             }
+        }
+
+        private void frmRegister_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = cmbRoles;
         }
     }
 }

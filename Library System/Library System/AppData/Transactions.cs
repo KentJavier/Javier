@@ -18,7 +18,7 @@ namespace Library_System.AppData
         public int MemberId { get; set; }
         public int BookId { get; set; }
         public string TransactionType { get; set; }
-        public System.DateTime TransactionDate { get; set; }
+        public Nullable<System.DateTime> TransactionDate { get; set; }
         public int StaffId { get; set; }
     
         public virtual Books Books { get; set; }

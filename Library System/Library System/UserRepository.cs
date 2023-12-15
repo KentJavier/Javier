@@ -21,6 +21,7 @@ namespace Library_System
         Member = 3
     }
 
+    // Connects to the sql table
     public class UserRepository
     {
         public ErrorCode Register(string FirstName, string LastName, string Email, string Username, string Password, DateTime RegistrationDate, int RoleId)
@@ -87,7 +88,7 @@ namespace Library_System
                 return ErrorCode.Error;
             }
         }
-
+        // Verifies the user role
         public bool Authentication(string username, string password, out UserRole role)
         {
             try

@@ -14,3 +14,6 @@ C:\Users\a\Documents\GitHub\Javier\Library System\Library System\bin\Debug\Entit
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library System.csproj.CopyComplete
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmLogin.resources
 C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmRegister.resources
+C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmAdminDashboard.resources
+C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmMemberDashboard.resources
+C:\Users\a\Documents\GitHub\Javier\Library System\Library System\obj\Debug\Library_System.frmStaffDashboard.resources

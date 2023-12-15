@@ -80,7 +80,7 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblRole.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblRole.Location = new System.Drawing.Point(10, 12);
+            this.lblRole.Location = new System.Drawing.Point(10, 19);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(47, 21);
             this.lblRole.TabIndex = 17;
@@ -91,7 +91,7 @@
             this.cmbRoles.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.cmbRoles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(28, 36);
+            this.cmbRoles.Location = new System.Drawing.Point(28, 43);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(121, 29);
             this.cmbRoles.TabIndex = 8;
@@ -101,7 +101,7 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblPassword.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblPassword.Location = new System.Drawing.Point(10, 315);
+            this.lblPassword.Location = new System.Drawing.Point(10, 322);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(87, 21);
             this.lblPassword.TabIndex = 16;
@@ -112,7 +112,7 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblLastName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblLastName.Location = new System.Drawing.Point(10, 123);
+            this.lblLastName.Location = new System.Drawing.Point(10, 130);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(97, 21);
             this.lblLastName.TabIndex = 15;
@@ -123,7 +123,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblEmail.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblEmail.Location = new System.Drawing.Point(9, 183);
+            this.lblEmail.Location = new System.Drawing.Point(9, 190);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(55, 21);
             this.lblEmail.TabIndex = 14;
@@ -134,7 +134,7 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblUsername.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblUsername.Location = new System.Drawing.Point(9, 252);
+            this.lblUsername.Location = new System.Drawing.Point(9, 259);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(93, 21);
             this.lblUsername.TabIndex = 13;
@@ -145,7 +145,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(8, 253);
+            this.label4.Location = new System.Drawing.Point(8, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
             this.label4.TabIndex = 12;
@@ -156,7 +156,7 @@
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblFirstName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblFirstName.Location = new System.Drawing.Point(10, 63);
+            this.lblFirstName.Location = new System.Drawing.Point(10, 70);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(99, 21);
             this.lblFirstName.TabIndex = 11;
@@ -167,7 +167,7 @@
             this.lblRegistrationDate.AutoSize = true;
             this.lblRegistrationDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblRegistrationDate.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblRegistrationDate.Location = new System.Drawing.Point(9, 377);
+            this.lblRegistrationDate.Location = new System.Drawing.Point(9, 384);
             this.lblRegistrationDate.Name = "lblRegistrationDate";
             this.lblRegistrationDate.Size = new System.Drawing.Size(154, 21);
             this.lblRegistrationDate.TabIndex = 10;
@@ -179,7 +179,7 @@
             this.dtpRegistrationDate.CalendarTitleForeColor = System.Drawing.Color.DimGray;
             this.dtpRegistrationDate.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
             this.dtpRegistrationDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.dtpRegistrationDate.Location = new System.Drawing.Point(14, 401);
+            this.dtpRegistrationDate.Location = new System.Drawing.Point(14, 408);
             this.dtpRegistrationDate.Name = "dtpRegistrationDate";
             this.dtpRegistrationDate.Size = new System.Drawing.Size(329, 33);
             this.dtpRegistrationDate.TabIndex = 7;
@@ -189,7 +189,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.White;
             this.txtPassword.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txtPassword.Location = new System.Drawing.Point(28, 339);
+            this.txtPassword.Location = new System.Drawing.Point(28, 346);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(315, 33);
             this.txtPassword.TabIndex = 6;
@@ -199,7 +199,7 @@
             this.txtUsername.BackColor = System.Drawing.Color.White;
             this.txtUsername.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txtUsername.Location = new System.Drawing.Point(28, 276);
+            this.txtUsername.Location = new System.Drawing.Point(28, 283);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(314, 33);
             this.txtUsername.TabIndex = 5;
@@ -222,7 +222,7 @@
             this.txtEmail.BackColor = System.Drawing.Color.White;
             this.txtEmail.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txtEmail.Location = new System.Drawing.Point(28, 207);
+            this.txtEmail.Location = new System.Drawing.Point(28, 214);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(314, 33);
             this.txtEmail.TabIndex = 3;
@@ -232,7 +232,7 @@
             this.txtLastName.BackColor = System.Drawing.Color.White;
             this.txtLastName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txtLastName.Location = new System.Drawing.Point(28, 147);
+            this.txtLastName.Location = new System.Drawing.Point(28, 154);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(314, 33);
             this.txtLastName.TabIndex = 2;
@@ -242,7 +242,7 @@
             this.txtFirstName.BackColor = System.Drawing.Color.White;
             this.txtFirstName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.txtFirstName.Location = new System.Drawing.Point(28, 87);
+            this.txtFirstName.Location = new System.Drawing.Point(28, 94);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(314, 33);
             this.txtFirstName.TabIndex = 1;
@@ -250,9 +250,9 @@
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(46, 151);
+            this.pbLogo.Location = new System.Drawing.Point(39, 123);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(225, 216);
+            this.pbLogo.Size = new System.Drawing.Size(264, 249);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 4;
             this.pbLogo.TabStop = false;
@@ -269,6 +269,7 @@
             this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
+            this.Load += new System.EventHandler(this.frmRegister_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();

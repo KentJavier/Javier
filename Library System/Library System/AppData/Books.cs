@@ -22,9 +22,9 @@ namespace Library_System.AppData
     
         public int BookId { get; set; }
         public string BookTitle { get; set; }
-        public int BookAuthorId { get; set; }
+        public Nullable<int> AuthorId { get; set; }
         public string BookGenre { get; set; }
-        public int BookCopies { get; set; }
+        public Nullable<int> BookCopies { get; set; }
     
         public virtual Authors Authors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

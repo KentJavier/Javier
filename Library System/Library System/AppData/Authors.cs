@@ -22,7 +22,7 @@ namespace Library_System.AppData
     
         public int AuthorId { get; set; }
         public string AuthorName { get; set; }
-        public System.DateTime AuthorBDay { get; set; }
+        public Nullable<System.DateTime> AuthorBDay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Books> Books { get; set; }

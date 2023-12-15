@@ -20,8 +20,8 @@ namespace Library_System.AppData
         public string AdminEmail { get; set; }
         public string AdminUsername { get; set; }
         public string AdminPassword { get; set; }
-        public System.DateTime AdminRegistrationDate { get; set; }
-        public int RoleId { get; set; }
+        public Nullable<System.DateTime> AdminRegistrationDate { get; set; }
+        public Nullable<int> RoleId { get; set; }
     
         public virtual Roles Roles { get; set; }
     }

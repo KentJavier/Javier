@@ -29,7 +29,7 @@
         <MappingFragment StoreEntitySet="Books">
           <ScalarProperty Name="BookCopies" ColumnName="BookCopies" />
           <ScalarProperty Name="BookGenre" ColumnName="BookGenre" />
-          <ScalarProperty Name="BookAuthorId" ColumnName="BookAuthorId" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
           <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
           <ScalarProperty Name="BookId" ColumnName="BookId" />
         </MappingFragment>

@@ -26,7 +26,7 @@ namespace Library_System.AppData
         public string StaffEmail { get; set; }
         public string StaffUsername { get; set; }
         public string StaffPassword { get; set; }
-        public System.DateTime StaffRegistrationDate { get; set; }
+        public Nullable<System.DateTime> StaffRegistrationDate { get; set; }
         public int RoleId { get; set; }
     
         public virtual Roles Roles { get; set; }

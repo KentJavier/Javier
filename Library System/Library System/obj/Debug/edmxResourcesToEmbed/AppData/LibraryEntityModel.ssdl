@@ -5,63 +5,63 @@
       <PropertyRef Name="AdminId" />
     </Key>
     <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AdminFirstName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AdminLastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AdminEmail" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AdminUsername" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AdminPassword" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AdminRegistrationDate" Type="datetime" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="AdminFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="AdminLastName" Type="varchar" MaxLength="50" />
+    <Property Name="AdminEmail" Type="varchar" MaxLength="50" />
+    <Property Name="AdminUsername" Type="varchar" MaxLength="50" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="50" />
+    <Property Name="AdminRegistrationDate" Type="datetime" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
   <EntityType Name="Authors">
     <Key>
       <PropertyRef Name="AuthorId" />
     </Key>
     <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AuthorName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AuthorBDay" Type="date" Nullable="false" />
+    <Property Name="AuthorName" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorBDay" Type="date" />
   </EntityType>
   <EntityType Name="Books">
     <Key>
       <PropertyRef Name="BookId" />
     </Key>
     <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="BookTitle" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="BookAuthorId" Type="int" Nullable="false" />
-    <Property Name="BookGenre" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="BookCopies" Type="int" Nullable="false" />
+    <Property Name="BookTitle" Type="varchar" MaxLength="50" />
+    <Property Name="AuthorId" Type="int" />
+    <Property Name="BookGenre" Type="varchar" MaxLength="50" />
+    <Property Name="BookCopies" Type="int" />
   </EntityType>
   <EntityType Name="Members">
     <Key>
       <PropertyRef Name="MemberId" />
     </Key>
     <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MemberFirstName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberLastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberEmail" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberUsername" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberPassword" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="MemberRegistrationDate" Type="datetime" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="MemberFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MemberLastName" Type="varchar" MaxLength="50" />
+    <Property Name="MemberEmail" Type="varchar" MaxLength="50" />
+    <Property Name="MemberUsername" Type="varchar" MaxLength="50" />
+    <Property Name="MemberPassword" Type="varchar" MaxLength="50" />
+    <Property Name="MemberRegistrationDate" Type="datetime" />
+    <Property Name="RoleId" Type="int" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
     <Property Name="RoleId" Type="int" Nullable="false" />
-    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Staffs">
     <Key>
       <PropertyRef Name="StaffId" />
     </Key>
     <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StaffFirstName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="StaffLastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="StaffEmail" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="StaffUsername" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="StaffPassword" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="StaffRegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="StaffFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="StaffLastName" Type="varchar" MaxLength="50" />
+    <Property Name="StaffEmail" Type="varchar" MaxLength="50" />
+    <Property Name="StaffUsername" Type="varchar" MaxLength="50" />
+    <Property Name="StaffPassword" Type="varchar" MaxLength="50" />
+    <Property Name="StaffRegistrationDate" Type="datetime" />
     <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Transactions">
@@ -71,12 +71,12 @@
     <Property Name="TransactionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MemberId" Type="int" Nullable="false" />
     <Property Name="BookId" Type="int" Nullable="false" />
-    <Property Name="TransactionType" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="TransactionType" Type="varchar" MaxLength="50" />
+    <Property Name="TransactionDate" Type="date" />
     <Property Name="StaffId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Admins_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
     <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
@@ -88,19 +88,19 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Books_Authors">
-    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
     <End Role="Books" Type="Self.Books" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Authors">
         <PropertyRef Name="AuthorId" />
       </Principal>
       <Dependent Role="Books">
-        <PropertyRef Name="BookAuthorId" />
+        <PropertyRef Name="AuthorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Members_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
     <End Role="Members" Type="Self.Members" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
