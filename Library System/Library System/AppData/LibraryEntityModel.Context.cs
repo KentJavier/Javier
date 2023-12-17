@@ -32,5 +32,8 @@ namespace Library_System.AppData
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Staffs> Staffs { get; set; }
         public virtual DbSet<Transactions> Transactions { get; set; }
+        public virtual DbSet<vwAdmins> vwAdmins { get; set; }
+        public virtual DbSet<vwMembers> vwMembers { get; set; }
+        public virtual DbSet<vwStaffs> vwStaffs { get; set; }
     }
 }

@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -55,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="addUserControl.Designer.cs">
+      <DependentUpon>addUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="adminControl.Designer.cs">
+      <DependentUpon>adminControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Admins.cs">
       <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
@@ -91,6 +104,15 @@
     <Compile Include="AppData\Transactions.cs">
       <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\vwAdmins.cs">
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\vwMembers.cs">
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\vwStaffs.cs">
+      <DependentUpon>LibraryEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +137,12 @@
     <Compile Include="frmStaffDashboard.Designer.cs">
       <DependentUpon>frmStaffDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="memberControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="memberControl.Designer.cs">
+      <DependentUpon>memberControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmRegister.cs">
@@ -123,7 +151,25 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="staffControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="staffControl.Designer.cs">
+      <DependentUpon>staffControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="transactionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="transactionControl.Designer.cs">
+      <DependentUpon>transactionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserRepository.cs" />
+    <EmbeddedResource Include="addUserControl.resx">
+      <DependentUpon>addUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminControl.resx">
+      <DependentUpon>adminControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +182,9 @@
     <EmbeddedResource Include="frmStaffDashboard.resx">
       <DependentUpon>frmStaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="memberControl.resx">
+      <DependentUpon>memberControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -147,6 +196,12 @@
     </Compile>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staffControl.resx">
+      <DependentUpon>staffControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transactionControl.resx">
+      <DependentUpon>transactionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="AppData\LibraryEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

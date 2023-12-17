@@ -8,6 +8,9 @@
     <EntitySet Name="Roles" EntityType="LibrarySystemModel.Roles" />
     <EntitySet Name="Staffs" EntityType="LibrarySystemModel.Staffs" />
     <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
+    <EntitySet Name="vwAdmins" EntityType="LibrarySystemModel.vwAdmins" />
+    <EntitySet Name="vwMembers" EntityType="LibrarySystemModel.vwMembers" />
+    <EntitySet Name="vwStaffs" EntityType="LibrarySystemModel.vwStaffs" />
     <AssociationSet Name="FK_Admins_Roles" Association="LibrarySystemModel.FK_Admins_Roles">
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Admins" EntitySet="Admins" />
@@ -125,6 +128,42 @@
     <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
     <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
     <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
+  </EntityType>
+  <EntityType Name="vwAdmins">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwMembers">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwStaffs">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Admins_Roles">
     <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />

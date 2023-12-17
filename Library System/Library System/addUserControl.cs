@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Library_System
 {
-    public partial class frmRegister : Form
+    public partial class addUserControl : UserControl
     {
         private UserRepository userRepo;
 
-        public frmRegister()
+        public addUserControl()
         {
             InitializeComponent();
             userRepo = new UserRepository();
@@ -26,8 +25,12 @@ namespace Library_System
             cmbRoles.Items.Add(UserRole.Staff);
             cmbRoles.Items.Add(UserRole.Member);
         }
-        // Provides error warning if textbox is blank, also sends the user info to the sql table
-        private void btnRegister_Click(object sender, EventArgs e)
+        void ClearText()
+        {
+            cmbRoles.Text = txtFirstName.Text = txtLastName.Text = txtEmail.Text = txtUsername.Text = txtPassword.Text = " ";
+        }
+        // Same code in frmRegister
+        private void btnAddAccount_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text) || dtpRegistrationDate.Value == dtpRegistrationDate.MinDate || cmbRoles.SelectedIndex == -1)
             {
@@ -72,9 +75,9 @@ namespace Library_System
             }
         }
 
-        private void frmRegister_Load(object sender, EventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            this.ActiveControl = cmbRoles;
+            ClearText();
         }
     }
 }

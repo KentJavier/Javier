@@ -83,5 +83,44 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vwAdmins">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwAdmins">
+        <MappingFragment StoreEntitySet="vwAdmins">
+          <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwMembers">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwMembers">
+        <MappingFragment StoreEntitySet="vwMembers">
+          <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+          <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+          <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwStaffs">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwStaffs">
+        <MappingFragment StoreEntitySet="vwStaffs">
+          <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
+          <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+          <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+          <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+          <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+          <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

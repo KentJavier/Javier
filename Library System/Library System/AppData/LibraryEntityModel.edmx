@@ -80,6 +80,48 @@
           <Property Name="TransactionDate" Type="date" />
           <Property Name="StaffId" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LibrarySystem.dbo.vwAdmins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwAdmins">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="AdminLastName" Type="varchar" MaxLength="50" />
+          <Property Name="AdminEmail" Type="varchar" MaxLength="50" />
+          <Property Name="AdminUsername" Type="varchar" MaxLength="50" />
+          <Property Name="AdminPassword" Type="varchar" MaxLength="50" />
+          <Property Name="AdminRegistrationDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LibrarySystem.dbo.vwMembers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwMembers">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MemberLastName" Type="varchar" MaxLength="50" />
+          <Property Name="MemberEmail" Type="varchar" MaxLength="50" />
+          <Property Name="MemberUsername" Type="varchar" MaxLength="50" />
+          <Property Name="MemberPassword" Type="varchar" MaxLength="50" />
+          <Property Name="MemberRegistrationDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwStaffs">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="StaffLastName" Type="varchar" MaxLength="50" />
+          <Property Name="StaffEmail" Type="varchar" MaxLength="50" />
+          <Property Name="StaffUsername" Type="varchar" MaxLength="50" />
+          <Property Name="StaffPassword" Type="varchar" MaxLength="50" />
+          <Property Name="StaffRegistrationDate" Type="datetime" />
+        </EntityType>
         <Association Name="FK_Admins_Roles">
           <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
           <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
@@ -172,6 +214,39 @@
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staffs" EntityType="Self.Staffs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwAdmins" EntityType="Self.vwAdmins" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwAdmins].[AdminId] AS [AdminId], 
+    [vwAdmins].[AdminFirstName] AS [AdminFirstName], 
+    [vwAdmins].[AdminLastName] AS [AdminLastName], 
+    [vwAdmins].[AdminEmail] AS [AdminEmail], 
+    [vwAdmins].[AdminUsername] AS [AdminUsername], 
+    [vwAdmins].[AdminPassword] AS [AdminPassword], 
+    [vwAdmins].[AdminRegistrationDate] AS [AdminRegistrationDate]
+    FROM [dbo].[vwAdmins] AS [vwAdmins]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwMembers" EntityType="Self.vwMembers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwMembers].[MemberId] AS [MemberId], 
+    [vwMembers].[MemberFirstName] AS [MemberFirstName], 
+    [vwMembers].[MemberLastName] AS [MemberLastName], 
+    [vwMembers].[MemberEmail] AS [MemberEmail], 
+    [vwMembers].[MemberUsername] AS [MemberUsername], 
+    [vwMembers].[MemberPassword] AS [MemberPassword], 
+    [vwMembers].[MemberRegistrationDate] AS [MemberRegistrationDate]
+    FROM [dbo].[vwMembers] AS [vwMembers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwStaffs" EntityType="Self.vwStaffs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwStaffs].[StaffId] AS [StaffId], 
+    [vwStaffs].[StaffFirstName] AS [StaffFirstName], 
+    [vwStaffs].[StaffLastName] AS [StaffLastName], 
+    [vwStaffs].[StaffEmail] AS [StaffEmail], 
+    [vwStaffs].[StaffUsername] AS [StaffUsername], 
+    [vwStaffs].[StaffPassword] AS [StaffPassword], 
+    [vwStaffs].[StaffRegistrationDate] AS [StaffRegistrationDate]
+    FROM [dbo].[vwStaffs] AS [vwStaffs]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Admins_Roles" Association="Self.FK_Admins_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Admins" EntitySet="Admins" />
@@ -213,6 +288,9 @@
           <EntitySet Name="Roles" EntityType="LibrarySystemModel.Roles" />
           <EntitySet Name="Staffs" EntityType="LibrarySystemModel.Staffs" />
           <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
+          <EntitySet Name="vwAdmins" EntityType="LibrarySystemModel.vwAdmins" />
+          <EntitySet Name="vwMembers" EntityType="LibrarySystemModel.vwMembers" />
+          <EntitySet Name="vwStaffs" EntityType="LibrarySystemModel.vwStaffs" />
           <AssociationSet Name="FK_Admins_Roles" Association="LibrarySystemModel.FK_Admins_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Admins" EntitySet="Admins" />
@@ -330,6 +408,42 @@
           <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
           <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
           <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
+        </EntityType>
+        <EntityType Name="vwAdmins">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwMembers">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vwStaffs">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Admins_Roles">
           <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />
@@ -500,6 +614,45 @@
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
                 <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAdmins">
+            <EntityTypeMapping TypeName="LibrarySystemModel.vwAdmins">
+              <MappingFragment StoreEntitySet="vwAdmins">
+                <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+                <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwMembers">
+            <EntityTypeMapping TypeName="LibrarySystemModel.vwMembers">
+              <MappingFragment StoreEntitySet="vwMembers">
+                <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+                <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+                <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+                <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+                <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwStaffs">
+            <EntityTypeMapping TypeName="LibrarySystemModel.vwStaffs">
+              <MappingFragment StoreEntitySet="vwStaffs">
+                <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
+                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+                <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
