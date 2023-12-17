@@ -68,6 +68,9 @@
     <Compile Include="adminControl.Designer.cs">
       <DependentUpon>adminControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admins.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Admins.cs">
       <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
@@ -113,6 +116,12 @@
     <Compile Include="AppData\vwStaffs.cs">
       <DependentUpon>LibraryEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Authors.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Books.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,11 +146,29 @@
     <Compile Include="frmStaffDashboard.Designer.cs">
       <DependentUpon>frmStaffDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="LibrarySystemEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySystemEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibrarySystemEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibrarySystemEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySystemEntityModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="memberControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="memberControl.Designer.cs">
       <DependentUpon>memberControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,11 +178,17 @@
     <Compile Include="frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="Roles.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="staffControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="staffControl.Designer.cs">
       <DependentUpon>staffControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staffs.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="transactionControl.cs">
       <SubType>UserControl</SubType>
@@ -163,7 +196,19 @@
     <Compile Include="transactionControl.Designer.cs">
       <DependentUpon>transactionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transactions.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="UserRepository.cs" />
+    <Compile Include="vwAdmins.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMembers.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwStaffs.cs">
+      <DependentUpon>LibrarySystemEntityModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addUserControl.resx">
       <DependentUpon>addUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +255,13 @@
     <None Include="AppData\LibraryEntityModel.edmx.diagram">
       <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="LibrarySystemEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibrarySystemEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LibrarySystemEntityModel.edmx.diagram">
+      <DependentUpon>LibrarySystemEntityModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -237,6 +289,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LibraryEntityModel.edmx</DependentUpon>
       <LastGenOutput>LibraryEntityModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="LibrarySystemEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibrarySystemEntityModel.edmx</DependentUpon>
+      <LastGenOutput>LibrarySystemEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LibrarySystemEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibrarySystemEntityModel.edmx</DependentUpon>
+      <LastGenOutput>LibrarySystemEntityModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

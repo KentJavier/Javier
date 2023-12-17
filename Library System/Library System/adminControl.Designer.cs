@@ -28,141 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvAdmins = new System.Windows.Forms.DataGridView();
-            this.dgAdminId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgAdminRegistrationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmins)).BeginInit();
+            this.dgvAdmin = new System.Windows.Forms.DataGridView();
+            this.btnDeleteAdmin = new System.Windows.Forms.Button();
+            this.txtSearchAdmin = new System.Windows.Forms.TextBox();
+            this.gpSearchAdmin = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).BeginInit();
+            this.gpSearchAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvAdmins
+            // dgvAdmin
             // 
-            this.dgvAdmins.AllowUserToDeleteRows = false;
-            this.dgvAdmins.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdmins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgAdminId,
-            this.dgAdminFirstName,
-            this.dgAdminLastName,
-            this.dgAdminEmail,
-            this.dgAdminUsername,
-            this.dgAdminPassword,
-            this.dgAdminRegistrationDate});
-            this.dgvAdmins.Location = new System.Drawing.Point(29, 131);
-            this.dgvAdmins.Name = "dgvAdmins";
-            this.dgvAdmins.ReadOnly = true;
-            this.dgvAdmins.RowHeadersWidth = 51;
-            this.dgvAdmins.RowTemplate.Height = 24;
-            this.dgvAdmins.Size = new System.Drawing.Size(622, 441);
-            this.dgvAdmins.TabIndex = 1;
+            this.dgvAdmin.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdmin.Location = new System.Drawing.Point(15, 179);
+            this.dgvAdmin.Name = "dgvAdmin";
+            this.dgvAdmin.RowHeadersWidth = 51;
+            this.dgvAdmin.RowTemplate.Height = 24;
+            this.dgvAdmin.Size = new System.Drawing.Size(642, 395);
+            this.dgvAdmin.TabIndex = 1;
             // 
-            // dgAdminId
+            // btnDeleteAdmin
             // 
-            this.dgAdminId.DataPropertyName = "AdminId";
-            this.dgAdminId.HeaderText = "Admin Id";
-            this.dgAdminId.MinimumWidth = 6;
-            this.dgAdminId.Name = "dgAdminId";
-            this.dgAdminId.ReadOnly = true;
-            this.dgAdminId.Visible = false;
-            this.dgAdminId.Width = 125;
+            this.btnDeleteAdmin.BackColor = System.Drawing.Color.White;
+            this.btnDeleteAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnDeleteAdmin.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnDeleteAdmin.Location = new System.Drawing.Point(495, 113);
+            this.btnDeleteAdmin.Name = "btnDeleteAdmin";
+            this.btnDeleteAdmin.Size = new System.Drawing.Size(162, 45);
+            this.btnDeleteAdmin.TabIndex = 37;
+            this.btnDeleteAdmin.Text = "Delete Account";
+            this.btnDeleteAdmin.UseVisualStyleBackColor = false;
             // 
-            // dgAdminFirstName
+            // txtSearchAdmin
             // 
-            this.dgAdminFirstName.DataPropertyName = "AdminFirstName";
-            this.dgAdminFirstName.HeaderText = "Admin First Name";
-            this.dgAdminFirstName.MinimumWidth = 6;
-            this.dgAdminFirstName.Name = "dgAdminFirstName";
-            this.dgAdminFirstName.ReadOnly = true;
-            this.dgAdminFirstName.Width = 125;
+            this.txtSearchAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtSearchAdmin.Location = new System.Drawing.Point(37, 43);
+            this.txtSearchAdmin.Name = "txtSearchAdmin";
+            this.txtSearchAdmin.Size = new System.Drawing.Size(361, 33);
+            this.txtSearchAdmin.TabIndex = 39;
             // 
-            // dgAdminLastName
+            // gpSearchAdmin
             // 
-            this.dgAdminLastName.DataPropertyName = "AdminLastName";
-            this.dgAdminLastName.HeaderText = "Admin Last Name";
-            this.dgAdminLastName.MinimumWidth = 6;
-            this.dgAdminLastName.Name = "dgAdminLastName";
-            this.dgAdminLastName.ReadOnly = true;
-            this.dgAdminLastName.Width = 125;
-            // 
-            // dgAdminEmail
-            // 
-            this.dgAdminEmail.DataPropertyName = "AdminEmail";
-            this.dgAdminEmail.HeaderText = "Admin Email";
-            this.dgAdminEmail.MinimumWidth = 6;
-            this.dgAdminEmail.Name = "dgAdminEmail";
-            this.dgAdminEmail.ReadOnly = true;
-            this.dgAdminEmail.Width = 125;
-            // 
-            // dgAdminUsername
-            // 
-            this.dgAdminUsername.DataPropertyName = "AdminUsername";
-            this.dgAdminUsername.HeaderText = "Admin Username";
-            this.dgAdminUsername.MinimumWidth = 6;
-            this.dgAdminUsername.Name = "dgAdminUsername";
-            this.dgAdminUsername.ReadOnly = true;
-            this.dgAdminUsername.Width = 125;
-            // 
-            // dgAdminPassword
-            // 
-            this.dgAdminPassword.DataPropertyName = "AdminPassword";
-            this.dgAdminPassword.HeaderText = "Admin Password";
-            this.dgAdminPassword.MinimumWidth = 6;
-            this.dgAdminPassword.Name = "dgAdminPassword";
-            this.dgAdminPassword.ReadOnly = true;
-            this.dgAdminPassword.Width = 125;
-            // 
-            // dgAdminRegistrationDate
-            // 
-            this.dgAdminRegistrationDate.DataPropertyName = "AdminRegistrationDate";
-            this.dgAdminRegistrationDate.HeaderText = "Admin Registration Date";
-            this.dgAdminRegistrationDate.MinimumWidth = 6;
-            this.dgAdminRegistrationDate.Name = "dgAdminRegistrationDate";
-            this.dgAdminRegistrationDate.ReadOnly = true;
-            this.dgAdminRegistrationDate.Width = 125;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.White;
-            this.btnDelete.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnDelete.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnDelete.Location = new System.Drawing.Point(489, 80);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(162, 45);
-            this.btnDelete.TabIndex = 39;
-            this.btnDelete.Text = "Delete Account";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.gpSearchAdmin.Controls.Add(this.txtSearchAdmin);
+            this.gpSearchAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.gpSearchAdmin.ForeColor = System.Drawing.Color.White;
+            this.gpSearchAdmin.Location = new System.Drawing.Point(15, 52);
+            this.gpSearchAdmin.Name = "gpSearchAdmin";
+            this.gpSearchAdmin.Size = new System.Drawing.Size(436, 106);
+            this.gpSearchAdmin.TabIndex = 40;
+            this.gpSearchAdmin.TabStop = false;
+            this.gpSearchAdmin.Text = "SEARCH ACCOUNT";
             // 
             // adminControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.dgvAdmins);
+            this.Controls.Add(this.gpSearchAdmin);
+            this.Controls.Add(this.btnDeleteAdmin);
+            this.Controls.Add(this.dgvAdmin);
             this.Name = "adminControl";
-            this.Size = new System.Drawing.Size(678, 589);
-            this.Load += new System.EventHandler(this.adminControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmins)).EndInit();
+            this.Size = new System.Drawing.Size(676, 590);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdmin)).EndInit();
+            this.gpSearchAdmin.ResumeLayout(false);
+            this.gpSearchAdmin.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvAdmins;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminUsername;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgAdminRegistrationDate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridView dgvAdmin;
+        private System.Windows.Forms.Button btnDeleteAdmin;
+        private System.Windows.Forms.TextBox txtSearchAdmin;
+        private System.Windows.Forms.GroupBox gpSearchAdmin;
     }
 }

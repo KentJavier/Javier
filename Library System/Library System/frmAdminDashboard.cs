@@ -1,5 +1,4 @@
-﻿using Library_System.AppData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,35 +12,31 @@ namespace Library_System
 {
     public partial class frmAdminDashboard : Form
     {
-
         private UserRepository userRepo;
         private UserRole currentUserRole;
-        private string username;
+        private String username;
 
         public frmAdminDashboard(UserRole userRole, string username)
         {
             InitializeComponent();
-       
             userRepo = new UserRepository();
             currentUserRole = userRole;
-            this.username = username;
+            this.username = username; 
         }
 
-        private void frmAdminDashboard_Load(object sender, EventArgs e)
+        private void fmrAdminDashboard_Load(object sender, EventArgs e)
         {
+            lblProfileName.Text = $"{currentUserRole} {username}";
+
             addUserControl.Show();
             adminControl.Hide();
             staffControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
-
-            // Set the label text based on the current user
-            lblUsernameProfile.Text = $"{currentUserRole} {username}";
         }
 
-        private void btnAddUser_Click(object sender, EventArgs e)
+        private void btnAddAccount_Click(object sender, EventArgs e)
         {
-            addUserControl.Show();
             adminControl.Hide();
             staffControl.Hide();
             memberControl.Hide();
@@ -51,9 +46,9 @@ namespace Library_System
             addUserControl.BringToFront();
         }
 
-        private void btnAdminsMenu_Click(object sender, EventArgs e)
+        private void btnViewAdmin_Click(object sender, EventArgs e)
         {
-            addUserControl.Show();
+            addUserControl.Hide();
             staffControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
@@ -62,9 +57,9 @@ namespace Library_System
             adminControl.BringToFront();
         }
 
-        private void btnStaffMenu_Click(object sender, EventArgs e)
+        private void btnViewStaff_Click(object sender, EventArgs e)
         {
-            addUserControl.Show();
+            addUserControl.Hide();
             adminControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
@@ -73,9 +68,9 @@ namespace Library_System
             staffControl.BringToFront();
         }
 
-        private void btnMemberMenu_Click(object sender, EventArgs e)
+        private void btnViewMember_Click(object sender, EventArgs e)
         {
-            addUserControl.Show();
+            addUserControl.Hide();
             adminControl.Hide();
             staffControl.Hide();
             transactionControl.Hide();
@@ -84,9 +79,9 @@ namespace Library_System
             memberControl.BringToFront();
         }
 
-        private void btnTransactionMenu_Click(object sender, EventArgs e)
+        private void btnViewTransaction_Click(object sender, EventArgs e)
         {
-            addUserControl.Show();
+            addUserControl.Hide();
             adminControl.Hide();
             staffControl.Hide();
             memberControl.Hide();
@@ -94,7 +89,5 @@ namespace Library_System
             transactionControl.Show();
             transactionControl.BringToFront();
         }
-
-
     }
 }

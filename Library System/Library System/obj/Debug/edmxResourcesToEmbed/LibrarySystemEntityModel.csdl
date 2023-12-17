@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorBDay" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AuthorId" Type="Int32" />
+    <Property Name="BookGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BookCopies" Type="Int32" />
+    <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admins" Relationship="Self.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staffs_Roles" FromRole="Roles" ToRole="Staffs" />
+  </EntityType>
+  <EntityType Name="Staffs">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="0" />
+    <Property Name="StaffId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Books" Relationship="Self.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
+    <NavigationProperty Name="Staffs" Relationship="Self.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
+  </EntityType>
+  <EntityType Name="vwAdmins">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwMembers">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vwStaffs">
+    <Key>
+      <PropertyRef Name="StaffId" />
+    </Key>
+    <Property Name="StaffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StaffFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Admins_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Admins">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Books_Authors">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Books">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="BookId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Members_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Members">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staffs_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Staffs">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Staffs">
+    <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staffs">
+        <PropertyRef Name="StaffId" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admins" />
+    <EntitySet Name="Authors" EntityType="Self.Authors" />
+    <EntitySet Name="Books" EntityType="Self.Books" />
+    <EntitySet Name="Members" EntityType="Self.Members" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="Staffs" EntityType="Self.Staffs" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" />
+    <EntitySet Name="vwAdmins" EntityType="Self.vwAdmins" />
+    <EntitySet Name="vwMembers" EntityType="Self.vwMembers" />
+    <EntitySet Name="vwStaffs" EntityType="Self.vwStaffs" />
+    <AssociationSet Name="FK_Admins_Roles" Association="Self.FK_Admins_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Books" Association="Self.FK_Transactions_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Members" Association="Self.FK_Transactions_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staffs_Roles" Association="Self.FK_Staffs_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Staffs" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Staffs" Association="Self.FK_Transactions_Staffs">
+      <End Role="Staffs" EntitySet="Staffs" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

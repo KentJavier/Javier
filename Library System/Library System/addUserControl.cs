@@ -21,27 +21,28 @@ namespace Library_System
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider();
 
             // Use enum values for roles    
-            cmbRoles.Items.Add(UserRole.Admin);
-            cmbRoles.Items.Add(UserRole.Staff);
-            cmbRoles.Items.Add(UserRole.Member);
+            cmbRolesAU.Items.Add(UserRole.Admin);
+            cmbRolesAU.Items.Add(UserRole.Staff);
+            cmbRolesAU.Items.Add(UserRole.Member);
         }
-        void ClearText()
+
+        void ClearText() 
         {
-            cmbRoles.Text = txtFirstName.Text = txtLastName.Text = txtEmail.Text = txtUsername.Text = txtPassword.Text = " ";
+            cmbRolesAU.Text = txtFirstNameAU.Text = txtLastNameAU.Text = txtEmailAU.Text = txtUsernameAU.Text = txtPasswordAU.Text = " ";
         }
-        // Same code in frmRegister
-        private void btnAddAccount_Click(object sender, EventArgs e)
+
+        private void btnAddNew_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text) || dtpRegistrationDate.Value == dtpRegistrationDate.MinDate || cmbRoles.SelectedIndex == -1)
+            if (String.IsNullOrEmpty(txtFirstNameAU.Text) || String.IsNullOrEmpty(txtLastNameAU.Text) || String.IsNullOrEmpty(txtEmailAU.Text) || String.IsNullOrEmpty(txtUsernameAU.Text) || String.IsNullOrEmpty(txtPasswordAU.Text) || dtpRegistrationDateAU.Value == dtpRegistrationDateAU.MinDate || cmbRolesAU.SelectedIndex == -1)
             {
                 errorProvider1.Clear();
-                errorProvider1.SetError(txtFirstName, "Your first name is required!");
-                errorProvider1.SetError(txtLastName, "Your last name is required!");
-                errorProvider1.SetError(txtEmail, "Your email is required!");
-                errorProvider1.SetError(txtUsername, "Your username is required!");
-                errorProvider1.SetError(txtPassword, "Your password is required!");
-                errorProvider1.SetError(dtpRegistrationDate, "Please select a valid registration date!");
-                errorProvider1.SetError(cmbRoles, "Please select a role!");
+                errorProvider1.SetError(txtFirstNameAU, "Your first name is required!");
+                errorProvider1.SetError(txtLastNameAU, "Your last name is required!");
+                errorProvider1.SetError(txtEmailAU, "Your email is required!");
+                errorProvider1.SetError(txtUsernameAU, "Your username is required!");
+                errorProvider1.SetError(txtPasswordAU, "Your password is required!");
+                errorProvider1.SetError(dtpRegistrationDateAU, "Please select a valid registration date!");
+                errorProvider1.SetError(cmbRolesAU, "Please select a role!");
                 return;
             }
 
@@ -49,20 +50,20 @@ namespace Library_System
 
             try
             {
-                UserRole selectedRole = (UserRole)cmbRoles.SelectedItem;
-                ErrorCode res = userRepo.Register(txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text, dtpRegistrationDate.Value, (int)selectedRole);
+                UserRole selectedRole = (UserRole)cmbRolesAU.SelectedItem;
+                ErrorCode res = userRepo.Register(txtFirstNameAU.Text, txtLastNameAU.Text, txtEmailAU.Text, txtUsernameAU.Text, txtPasswordAU.Text, dtpRegistrationDateAU.Value, (int)selectedRole);
 
                 if (res == ErrorCode.Success)
                 {
-                    txtFirstName.Clear();
-                    txtLastName.Clear();
-                    txtEmail.Clear();
-                    txtUsername.Clear();
-                    txtPassword.Clear();
-                    dtpRegistrationDate.Value = DateTime.Now;
-                    cmbRoles.SelectedIndex = -1;
+                    txtFirstNameAU.Clear();
+                    txtLastNameAU.Clear();
+                    txtEmailAU.Clear();
+                    txtUsernameAU.Clear();
+                    txtPasswordAU.Clear();
+                    dtpRegistrationDateAU.Value = DateTime.Now;
+                    cmbRolesAU.SelectedIndex = -1;
 
-                    MessageBox.Show("Account Registered successfully!");
+                    MessageBox.Show("A new account has been added successfully!");
                 }
                 else
                 {
@@ -73,6 +74,11 @@ namespace Library_System
             {
                 Console.WriteLine($"Error: {ex}");
             }
+        }
+
+        private void addUserControl_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = cmbRolesAU;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
