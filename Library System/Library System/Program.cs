@@ -16,7 +16,7 @@ namespace Library_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAdminDashboard(UserRole.Admin, "adone"));
+            Application.Run(new frmLogin());
         }
     }
 }

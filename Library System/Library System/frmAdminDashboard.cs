@@ -28,27 +28,16 @@ namespace Library_System
         {
             lblProfileName.Text = $"{currentUserRole} {username}";
 
-            addUserControl.Show();
-            adminControl.Hide();
+            this.ActiveControl = btnViewAdmin;
+
+            adminControl.Show();
             staffControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
-        }
-
-        private void btnAddAccount_Click(object sender, EventArgs e)
-        {
-            adminControl.Hide();
-            staffControl.Hide();
-            memberControl.Hide();
-            transactionControl.Hide();
-
-            addUserControl.Show();
-            addUserControl.BringToFront();
         }
 
         private void btnViewAdmin_Click(object sender, EventArgs e)
         {
-            addUserControl.Hide();
             staffControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
@@ -59,7 +48,6 @@ namespace Library_System
 
         private void btnViewStaff_Click(object sender, EventArgs e)
         {
-            addUserControl.Hide();
             adminControl.Hide();
             memberControl.Hide();
             transactionControl.Hide();
@@ -70,7 +58,6 @@ namespace Library_System
 
         private void btnViewMember_Click(object sender, EventArgs e)
         {
-            addUserControl.Hide();
             adminControl.Hide();
             staffControl.Hide();
             transactionControl.Hide();
@@ -81,7 +68,6 @@ namespace Library_System
 
         private void btnViewTransaction_Click(object sender, EventArgs e)
         {
-            addUserControl.Hide();
             adminControl.Hide();
             staffControl.Hide();
             memberControl.Hide();

@@ -4,82 +4,121 @@
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="LibrarySystemModel.Admins">
         <MappingFragment StoreEntitySet="Admins">
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
-          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
-          <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
-          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
-          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
-          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
           <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Authors">
       <EntityTypeMapping TypeName="LibrarySystemModel.Authors">
         <MappingFragment StoreEntitySet="Authors">
-          <ScalarProperty Name="AuthorBDay" ColumnName="AuthorBDay" />
-          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
           <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="AuthorBDay" ColumnName="AuthorBDay" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="LibrarySystemModel.Books">
         <MappingFragment StoreEntitySet="Books">
-          <ScalarProperty Name="BookCopies" ColumnName="BookCopies" />
-          <ScalarProperty Name="BookGenre" ColumnName="BookGenre" />
-          <ScalarProperty Name="BookAuthorId" ColumnName="BookAuthorId" />
-          <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
           <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="BookGenre" ColumnName="BookGenre" />
+          <ScalarProperty Name="BookCopies" ColumnName="BookCopies" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Members">
       <EntityTypeMapping TypeName="LibrarySystemModel.Members">
         <MappingFragment StoreEntitySet="Members">
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
-          <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
-          <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
-          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
-          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
-          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+          <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+          <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
       <EntityTypeMapping TypeName="LibrarySystemModel.Roles">
         <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Staffs">
       <EntityTypeMapping TypeName="LibrarySystemModel.Staffs">
         <MappingFragment StoreEntitySet="Staffs">
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
-          <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
-          <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
-          <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
-          <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
-          <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
           <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+          <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+          <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+          <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+          <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+          <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
         <MappingFragment StoreEntitySet="Transactions">
-          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
-          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
           <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwAdmins">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwAdmins">
+        <MappingFragment StoreEntitySet="vwAdmins">
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwMembers">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwMembers">
+        <MappingFragment StoreEntitySet="vwMembers">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+          <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+          <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwStaffs">
+      <EntityTypeMapping TypeName="LibrarySystemModel.vwStaffs">
+        <MappingFragment StoreEntitySet="vwStaffs">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+          <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+          <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+          <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+          <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+          <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

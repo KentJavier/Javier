@@ -32,7 +32,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblProfileName = new System.Windows.Forms.Label();
-            this.btnAddAccount = new System.Windows.Forms.Button();
             this.btnViewStaff = new System.Windows.Forms.Button();
             this.btnViewAdmin = new System.Windows.Forms.Button();
             this.btnViewMember = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@
             this.staffControl = new Library_System.staffControl();
             this.memberControl = new Library_System.memberControl();
             this.adminControl = new Library_System.adminControl();
-            this.addUserControl = new Library_System.addUserControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,25 +73,12 @@
             this.lblProfileName.TabIndex = 2;
             this.lblProfileName.Text = "placeholder";
             // 
-            // btnAddAccount
-            // 
-            this.btnAddAccount.BackColor = System.Drawing.Color.White;
-            this.btnAddAccount.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnAddAccount.ForeColor = System.Drawing.Color.Black;
-            this.btnAddAccount.Location = new System.Drawing.Point(12, 285);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(162, 45);
-            this.btnAddAccount.TabIndex = 5;
-            this.btnAddAccount.Text = "Add Account";
-            this.btnAddAccount.UseVisualStyleBackColor = false;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
-            // 
             // btnViewStaff
             // 
             this.btnViewStaff.BackColor = System.Drawing.Color.White;
             this.btnViewStaff.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnViewStaff.ForeColor = System.Drawing.Color.Black;
-            this.btnViewStaff.Location = new System.Drawing.Point(12, 387);
+            this.btnViewStaff.Location = new System.Drawing.Point(11, 360);
             this.btnViewStaff.Name = "btnViewStaff";
             this.btnViewStaff.Size = new System.Drawing.Size(162, 45);
             this.btnViewStaff.TabIndex = 6;
@@ -106,7 +91,7 @@
             this.btnViewAdmin.BackColor = System.Drawing.Color.White;
             this.btnViewAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnViewAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnViewAdmin.Location = new System.Drawing.Point(12, 336);
+            this.btnViewAdmin.Location = new System.Drawing.Point(12, 309);
             this.btnViewAdmin.Name = "btnViewAdmin";
             this.btnViewAdmin.Size = new System.Drawing.Size(162, 45);
             this.btnViewAdmin.TabIndex = 7;
@@ -119,7 +104,7 @@
             this.btnViewMember.BackColor = System.Drawing.Color.White;
             this.btnViewMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnViewMember.ForeColor = System.Drawing.Color.Black;
-            this.btnViewMember.Location = new System.Drawing.Point(12, 438);
+            this.btnViewMember.Location = new System.Drawing.Point(12, 411);
             this.btnViewMember.Name = "btnViewMember";
             this.btnViewMember.Size = new System.Drawing.Size(162, 45);
             this.btnViewMember.TabIndex = 8;
@@ -132,7 +117,7 @@
             this.btnViewTransaction.BackColor = System.Drawing.Color.White;
             this.btnViewTransaction.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnViewTransaction.ForeColor = System.Drawing.Color.Black;
-            this.btnViewTransaction.Location = new System.Drawing.Point(12, 489);
+            this.btnViewTransaction.Location = new System.Drawing.Point(12, 462);
             this.btnViewTransaction.Name = "btnViewTransaction";
             this.btnViewTransaction.Size = new System.Drawing.Size(162, 45);
             this.btnViewTransaction.TabIndex = 9;
@@ -172,14 +157,6 @@
             this.adminControl.Size = new System.Drawing.Size(676, 590);
             this.adminControl.TabIndex = 11;
             // 
-            // addUserControl
-            // 
-            this.addUserControl.BackColor = System.Drawing.Color.SteelBlue;
-            this.addUserControl.Location = new System.Drawing.Point(193, -3);
-            this.addUserControl.Name = "addUserControl";
-            this.addUserControl.Size = new System.Drawing.Size(681, 590);
-            this.addUserControl.TabIndex = 10;
-            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,12 +167,10 @@
             this.Controls.Add(this.staffControl);
             this.Controls.Add(this.memberControl);
             this.Controls.Add(this.adminControl);
-            this.Controls.Add(this.addUserControl);
             this.Controls.Add(this.btnViewTransaction);
             this.Controls.Add(this.btnViewMember);
             this.Controls.Add(this.btnViewAdmin);
             this.Controls.Add(this.btnViewStaff);
-            this.Controls.Add(this.btnAddAccount);
             this.Controls.Add(this.lblProfileName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -214,12 +189,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblProfileName;
-        private System.Windows.Forms.Button btnAddAccount;
         private System.Windows.Forms.Button btnViewStaff;
         private System.Windows.Forms.Button btnViewAdmin;
         private System.Windows.Forms.Button btnViewMember;
         private System.Windows.Forms.Button btnViewTransaction;
-        private addUserControl addUserControl;
         private adminControl adminControl;
         private memberControl memberControl;
         private staffControl staffControl;
