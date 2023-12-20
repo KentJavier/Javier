@@ -8,10 +8,12 @@ DBCC CHECKIDENT ('Members', RESEED, 0);
 DBCC CHECKIDENT ('Books', RESEED, 0);
 
 /* View */
+
 -- To view Admins table
 CREATE VIEW vwAdmins
 AS
 SELECT
+(
 	AdminId,
 	AdminFirstName,
 	AdminLastName,
@@ -19,6 +21,7 @@ SELECT
 	AdminUsername,
 	AdminPassword,
 	AdminRegistrationDate
+)
 FROM
 	Admins
 
@@ -26,6 +29,7 @@ FROM
 CREATE VIEW vwStaffs
 AS
 SELECT
+(
 	StaffId,
 	StaffFirstName,
 	StaffLastName,
@@ -33,6 +37,7 @@ SELECT
 	StaffUsername,
 	StaffPassword,
 	StaffRegistrationDate
+)
 FROM
 	Staffs
 
@@ -40,6 +45,7 @@ FROM
 CREATE VIEW vwMembers
 AS
 SELECT
+(
 	MemberId,
 	MemberFirstName,
 	MemberLastName,
@@ -47,6 +53,7 @@ SELECT
 	MemberUsername,
 	MemberPassword,
 	MemberRegistrationDate
+)
 FROM
 	Members	
 
@@ -71,7 +78,9 @@ END
 
 -- To delete values into Admins table
 CREATE PROCEDURE spDeleteAdmin
+(
     @AdminID int
+)
 AS
 BEGIN 
     DELETE FROM Admins
@@ -80,6 +89,7 @@ END;
 
 -- To update current values inside the Admins table
 CREATE PROCEDURE spUpdateAdmin
+(
     @AdminID int,
     @AdminFirstName varchar(50),
     @AdminLastName varchar(50),
@@ -87,6 +97,7 @@ CREATE PROCEDURE spUpdateAdmin
     @AdminUsername varchar(50),
     @AdminPassword varchar(50),
     @AdminRegistrationDate datetime
+)
 AS
 BEGIN
     UPDATE Admins
@@ -98,4 +109,108 @@ BEGIN
         AdminPassword = @AdminPassword,
         AdminRegistrationDate = @AdminRegistrationDate
     WHERE AdminID = @AdminID;
+END;
+
+-- Insert values in the Staffs table
+CREATE PROCEDURE spInsertStaff
+(
+	@StaffFirstName varchar(50),
+	@StaffLastName varchar(50),
+	@StaffEmail varchar(50),
+	@StaffUsername varchar(50),
+	@StaffPassword varchar(50),
+	@StaffRegistrationDate datetime,
+	@RoleId int
+)
+AS
+BEGIN
+	INSERT INTO Staffs(StaffFirstName, StaffLastName, StaffEmail, StaffUsername, StaffPassword, StaffRegistrationDate, RoleId)
+	VALUES (@StaffFirstName, @StaffLastName, @StaffEmail, @StaffUsername, @StaffPassword, @StaffRegistrationDate, @RoleId);
+END
+
+-- To delete values in the Staffs table
+CREATE PROCEDURE spDeleteStaff
+(
+	@StaffID int
+)
+AS
+BEGIN
+	DELETE FROM Staffs
+    WHERE StaffID = @StaffID;
+END
+
+-- To update current values inside the Staffs table
+CREATE PROCEDURE spUpdateStaff
+(
+    @StaffID int,
+    @StaffFirstName varchar(50),
+	@StaffLastName varchar(50),
+	@StaffEmail varchar(50),
+	@StaffUsername varchar(50),
+	@StaffPassword varchar(50),
+	@StaffRegistrationDate datetime
+)
+AS
+BEGIN
+    UPDATE Staffs
+    SET
+		StaffFirstName = @StaffFirstName,
+		StaffLastName = @StaffLastName,
+        StaffEmail = @StaffEmail,
+        StaffUsername = @StaffUsername,
+        StaffPassword = @StaffPassword,
+        StaffRegistrationDate = @StaffRegistrationDate
+    WHERE StaffID = @StaffID;
+END;
+
+-- To insert values into the Members table
+CREATE PROCEDURE spInsertMember
+(
+	@MemberFirstName varchar(50),
+	@MemberLastName varchar(50),
+	@MemberEmail varchar(50),
+	@MemberUsername varchar(50),
+	@MemberPassword varchar(50),
+	@MemberRegistrationDate datetime,
+	@RoleId int
+)
+AS
+BEGIN
+	INSERT INTO Members(MemberFirstName, MemberLastName, MemberEmail, MemberUsername, MemberPassword, MemberRegistrationDate, RoleId)
+	VALUES (@MemberFirstName, @MemberLastName, @MemberEmail, @MemberUsername, @MemberPassword, @MemberRegistrationDate, @RoleId);
+END
+
+-- To delete values in the Members table
+CREATE PROCEDURE spDeleteMember
+(
+	@MemberID int
+)
+AS
+BEGIN
+	DELETE FROM Members
+    WHERE MemberID = @MemberID;
+END
+
+-- To update current values inside the Members table
+CREATE PROCEDURE spUpdateMember
+(
+    @MemberID int,
+    @MemberFirstName varchar(50),
+	@MemberLastName varchar(50),
+	@MemberEmail varchar(50),
+	@MemberUsername varchar(50),
+	@MemberPassword varchar(50),
+	@MemberRegistrationDate datetime
+)
+AS
+BEGIN
+    UPDATE Members
+    SET
+		MemberFirstName = @MemberFirstName,
+		MemberLastName = @MemberLastName,
+        MemberEmail = @MemberEmail,
+        MemberUsername = @MemberUsername,
+        MemberPassword = @MemberPassword,
+        MemberRegistrationDate = @MemberRegistrationDate
+    WHERE MemberID = @MemberID;
 END;

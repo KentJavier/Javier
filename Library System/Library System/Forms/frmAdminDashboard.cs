@@ -25,45 +25,89 @@ namespace Library_System
             InitializeComponent();
             currentUserRole = role;
             this.username = username;
+
+            dgvAdmin.SelectionChanged += dgvAdmin_SelectionChanged;
         }
 
         private void frmAdminDashboard_Load(object sender, EventArgs e)
         {
             lblUsername.Text = $"{currentUserRole} {username}";
-
             LoadAdminsData();
         }
 
         // Function to switch forms
-        public static class FormSwitcher
+
+        private void btnStaff_Click(object sender, EventArgs e)
         {
-            public static void SwitchToForm(Form currentForm, Form newForm)
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmViewStaff)];
+
+            if (frm != null)
             {
-                currentForm.Hide();
-                newForm.Show();
+                // If open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If not open, create a new instance
+                frmViewStaff viewStaff = new frmViewStaff(UserRole.Admin, username);
+                viewStaff.Show();
             }
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmAdminDashboard(UserRole.Admin, username));
-        }
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmAdminDashboard)];
 
-        private void btnStaff_Click(object sender, EventArgs e)
-        {
-            FormSwitcher.SwitchToForm(this, new frmViewStaff(UserRole.Admin, username));
+            if (frm != null)
+            {
+                // If the form is already open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If the form is not open, create a new instance
+                frmAdminDashboard adminDashboard = new frmAdminDashboard(UserRole.Admin, username);
+                adminDashboard.Show();
+            }
         }
 
         private void btnMember_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmViewMember(UserRole.Admin, username));
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmViewMember)];
+
+            if (frm != null)
+            {
+                // If open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If not open, create a new instance
+                frmViewMember viewMember = new frmViewMember(UserRole.Admin, username);
+                viewMember.Show();
+            }
         }
 
         private void btnTransaction_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmViewTransaction(UserRole.Admin, username));
-        }
+            // Checks if the form is open
+            Form frm = Application.OpenForms[nameof(frmViewTransaction)];
 
+            if (frm != null)
+            {
+                // If open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If not open, create a new instance
+                frmViewTransaction viewTransaction = new frmViewTransaction(UserRole.Admin, username);
+                viewTransaction.Show();
+            }
+        }
         // Loads the data from the SQL using vwAdmins
         private void LoadAdminsData()
         {
@@ -173,7 +217,7 @@ namespace Library_System
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Function to delete values
         private void btnDeleteAdmin_Click(object sender, EventArgs e)
         {
             try
@@ -190,7 +234,6 @@ namespace Library_System
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
 
-                            // The only parameter needed for deletion is AdminID
                             cmd.Parameters.AddWithValue("@AdminID", adminIdToDelete);
 
                             cmd.ExecuteNonQuery();
@@ -217,15 +260,46 @@ namespace Library_System
             dtpAdminRegistrationDate.Value = DateTime.Now;
         }
 
-        // CellClick event to populate TextBoxes
-        private void dgvAdmin_CellClick(object sender, DataGridViewCellEventArgs e)
+        // To paste values from cell to textbox
+        private void dgvAdmin_SelectionChanged(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                // Handle cell click to populate TextBoxes
-                int adminIdToUpdate = Convert.ToInt32(dgvAdmin.Rows[e.RowIndex].Cells["AdminID"].Value);
- 
+                if (dgvAdmin.SelectedCells.Count > 0 && dgvAdmin.SelectedCells[0].RowIndex >= 0)
+                {
+                    int adminIdToUpdate = Convert.ToInt32(dgvAdmin.Rows[dgvAdmin.SelectedCells[0].RowIndex].Cells["AdminID"].Value);
+
+                    using (var connection = new SqlConnection(connectionString))
+                    using (var cmd = new SqlCommand("SELECT * FROM vwAdmins WHERE AdminID = @AdminID", connection))
+                    {
+                        cmd.Parameters.AddWithValue("@AdminID", adminIdToUpdate);
+
+                        using (var adapter = new SqlDataAdapter(cmd))
+                        {
+                            var dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count > 0)
+                            {
+                                var row = dt.Rows[0];
+
+                                txtAdminFirstName.Text = row["AdminFirstName"].ToString();
+                                txtAdminLastName.Text = row["AdminLastName"].ToString();
+                                txtAdminEmail.Text = row["AdminEmail"].ToString();
+                                txtAdminUsername.Text = row["AdminUsername"].ToString();
+                                txtAdminPassword.Text = row["AdminPassword"].ToString();
+                                dtpAdminRegistrationDate.Value = Convert.ToDateTime(row["AdminRegistrationDate"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
+

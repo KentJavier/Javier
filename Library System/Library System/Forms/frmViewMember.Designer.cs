@@ -30,22 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewMember));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.pbProfile = new System.Windows.Forms.PictureBox();
-            this.btnTransaction = new System.Windows.Forms.Button();
-            this.btnMember = new System.Windows.Forms.Button();
-            this.btnStaff = new System.Windows.Forms.Button();
-            this.btnAdmin = new System.Windows.Forms.Button();
+            this.dgvMember = new System.Windows.Forms.DataGridView();
             this.gpMemberAcc = new System.Windows.Forms.GroupBox();
             this.btnResetText = new System.Windows.Forms.Button();
             this.btnDeleteMember = new System.Windows.Forms.Button();
             this.btnUpdateMember = new System.Windows.Forms.Button();
             this.btnCreateMember = new System.Windows.Forms.Button();
             this.txtMemberFirstName = new System.Windows.Forms.TextBox();
-            this.lblMemberRole = new System.Windows.Forms.Label();
             this.lblMemberRegistrationDate = new System.Windows.Forms.Label();
-            this.cmbRole = new System.Windows.Forms.ComboBox();
             this.lblMemberFirstName = new System.Windows.Forms.Label();
             this.dtpMemberRegistrationDate = new System.Windows.Forms.DateTimePicker();
             this.lblMemberPassword = new System.Windows.Forms.Label();
@@ -56,105 +48,39 @@
             this.txtMemberEmail = new System.Windows.Forms.TextBox();
             this.txtMemberUsername = new System.Windows.Forms.TextBox();
             this.lblMemberEmail = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.pbProfile = new System.Windows.Forms.PictureBox();
+            this.btnTransaction = new System.Windows.Forms.Button();
+            this.btnMember = new System.Windows.Forms.Button();
+            this.btnStaff = new System.Windows.Forms.Button();
+            this.btnAdmin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).BeginInit();
             this.gpMemberAcc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.dgvMember);
             this.panel1.Controls.Add(this.gpMemberAcc);
             this.panel1.Location = new System.Drawing.Point(186, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 518);
             this.panel1.TabIndex = 19;
             // 
-            // lblUsername
+            // dgvMember
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.White;
-            this.lblUsername.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F);
-            this.lblUsername.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblUsername.Location = new System.Drawing.Point(11, 215);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(106, 23);
-            this.lblUsername.TabIndex = 18;
-            this.lblUsername.Text = "Username";
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.BackColor = System.Drawing.Color.White;
-            this.lblWelcome.Font = new System.Drawing.Font("Lucida Sans Unicode", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblWelcome.Location = new System.Drawing.Point(7, 164);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(169, 40);
-            this.lblWelcome.TabIndex = 17;
-            this.lblWelcome.Text = "Welcome!";
-            // 
-            // pbProfile
-            // 
-            this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
-            this.pbProfile.Location = new System.Drawing.Point(15, 21);
-            this.pbProfile.Name = "pbProfile";
-            this.pbProfile.Size = new System.Drawing.Size(151, 140);
-            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfile.TabIndex = 12;
-            this.pbProfile.TabStop = false;
-            // 
-            // btnTransaction
-            // 
-            this.btnTransaction.BackColor = System.Drawing.Color.White;
-            this.btnTransaction.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnTransaction.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnTransaction.Location = new System.Drawing.Point(30, 414);
-            this.btnTransaction.Name = "btnTransaction";
-            this.btnTransaction.Size = new System.Drawing.Size(119, 41);
-            this.btnTransaction.TabIndex = 28;
-            this.btnTransaction.Text = "Transaction";
-            this.btnTransaction.UseVisualStyleBackColor = false;
-            this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
-            // 
-            // btnMember
-            // 
-            this.btnMember.BackColor = System.Drawing.Color.White;
-            this.btnMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnMember.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnMember.Location = new System.Drawing.Point(30, 367);
-            this.btnMember.Name = "btnMember";
-            this.btnMember.Size = new System.Drawing.Size(119, 41);
-            this.btnMember.TabIndex = 27;
-            this.btnMember.Text = "Member";
-            this.btnMember.UseVisualStyleBackColor = false;
-            this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
-            // 
-            // btnStaff
-            // 
-            this.btnStaff.BackColor = System.Drawing.Color.White;
-            this.btnStaff.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnStaff.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnStaff.Location = new System.Drawing.Point(30, 320);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(119, 41);
-            this.btnStaff.TabIndex = 26;
-            this.btnStaff.Text = "Staff";
-            this.btnStaff.UseVisualStyleBackColor = false;
-            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
-            // 
-            // btnAdmin
-            // 
-            this.btnAdmin.BackColor = System.Drawing.Color.White;
-            this.btnAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnAdmin.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnAdmin.Location = new System.Drawing.Point(30, 275);
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(119, 41);
-            this.btnAdmin.TabIndex = 25;
-            this.btnAdmin.Text = "Admin";
-            this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            this.dgvMember.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMember.Location = new System.Drawing.Point(17, 245);
+            this.dgvMember.Name = "dgvMember";
+            this.dgvMember.RowHeadersWidth = 51;
+            this.dgvMember.RowTemplate.Height = 24;
+            this.dgvMember.Size = new System.Drawing.Size(744, 260);
+            this.dgvMember.TabIndex = 48;
             // 
             // gpMemberAcc
             // 
@@ -163,9 +89,7 @@
             this.gpMemberAcc.Controls.Add(this.btnUpdateMember);
             this.gpMemberAcc.Controls.Add(this.btnCreateMember);
             this.gpMemberAcc.Controls.Add(this.txtMemberFirstName);
-            this.gpMemberAcc.Controls.Add(this.lblMemberRole);
             this.gpMemberAcc.Controls.Add(this.lblMemberRegistrationDate);
-            this.gpMemberAcc.Controls.Add(this.cmbRole);
             this.gpMemberAcc.Controls.Add(this.lblMemberFirstName);
             this.gpMemberAcc.Controls.Add(this.dtpMemberRegistrationDate);
             this.gpMemberAcc.Controls.Add(this.lblMemberPassword);
@@ -181,9 +105,9 @@
             this.gpMemberAcc.Location = new System.Drawing.Point(17, 11);
             this.gpMemberAcc.Name = "gpMemberAcc";
             this.gpMemberAcc.Size = new System.Drawing.Size(744, 228);
-            this.gpMemberAcc.TabIndex = 45;
+            this.gpMemberAcc.TabIndex = 47;
             this.gpMemberAcc.TabStop = false;
-            this.gpMemberAcc.Text = "Member Account";
+            this.gpMemberAcc.Text = "Member";
             // 
             // btnResetText
             // 
@@ -196,42 +120,46 @@
             this.btnResetText.TabIndex = 47;
             this.btnResetText.Text = "Reset";
             this.btnResetText.UseVisualStyleBackColor = false;
+            this.btnResetText.Click += new System.EventHandler(this.btnResetText_Click);
             // 
             // btnDeleteMember
             // 
             this.btnDeleteMember.BackColor = System.Drawing.Color.White;
             this.btnDeleteMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnDeleteMember.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnDeleteMember.Location = new System.Drawing.Point(565, 173);
+            this.btnDeleteMember.Location = new System.Drawing.Point(560, 173);
             this.btnDeleteMember.Name = "btnDeleteMember";
             this.btnDeleteMember.Size = new System.Drawing.Size(75, 37);
             this.btnDeleteMember.TabIndex = 46;
             this.btnDeleteMember.Text = "Delete";
             this.btnDeleteMember.UseVisualStyleBackColor = false;
+            this.btnDeleteMember.Click += new System.EventHandler(this.btnDeleteMember_Click);
             // 
             // btnUpdateMember
             // 
             this.btnUpdateMember.BackColor = System.Drawing.Color.White;
             this.btnUpdateMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnUpdateMember.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnUpdateMember.Location = new System.Drawing.Point(484, 173);
+            this.btnUpdateMember.Location = new System.Drawing.Point(469, 173);
             this.btnUpdateMember.Name = "btnUpdateMember";
             this.btnUpdateMember.Size = new System.Drawing.Size(75, 37);
             this.btnUpdateMember.TabIndex = 45;
             this.btnUpdateMember.Text = "Update";
             this.btnUpdateMember.UseVisualStyleBackColor = false;
+            this.btnUpdateMember.Click += new System.EventHandler(this.btnUpdateMember_Click);
             // 
             // btnCreateMember
             // 
             this.btnCreateMember.BackColor = System.Drawing.Color.White;
             this.btnCreateMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnCreateMember.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnCreateMember.Location = new System.Drawing.Point(404, 173);
+            this.btnCreateMember.Location = new System.Drawing.Point(374, 173);
             this.btnCreateMember.Name = "btnCreateMember";
             this.btnCreateMember.Size = new System.Drawing.Size(75, 37);
             this.btnCreateMember.TabIndex = 44;
             this.btnCreateMember.Text = "Create";
             this.btnCreateMember.UseVisualStyleBackColor = false;
+            this.btnCreateMember.Click += new System.EventHandler(this.btnCreateMember_Click);
             // 
             // txtMemberFirstName
             // 
@@ -243,37 +171,16 @@
             this.txtMemberFirstName.Size = new System.Drawing.Size(230, 33);
             this.txtMemberFirstName.TabIndex = 29;
             // 
-            // lblMemberRole
-            // 
-            this.lblMemberRole.AutoSize = true;
-            this.lblMemberRole.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.lblMemberRole.ForeColor = System.Drawing.Color.White;
-            this.lblMemberRole.Location = new System.Drawing.Point(17, 38);
-            this.lblMemberRole.Name = "lblMemberRole";
-            this.lblMemberRole.Size = new System.Drawing.Size(47, 21);
-            this.lblMemberRole.TabIndex = 43;
-            this.lblMemberRole.Text = "Role";
-            // 
             // lblMemberRegistrationDate
             // 
             this.lblMemberRegistrationDate.AutoSize = true;
             this.lblMemberRegistrationDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblMemberRegistrationDate.ForeColor = System.Drawing.Color.White;
-            this.lblMemberRegistrationDate.Location = new System.Drawing.Point(220, 38);
+            this.lblMemberRegistrationDate.Location = new System.Drawing.Point(17, 34);
             this.lblMemberRegistrationDate.Name = "lblMemberRegistrationDate";
             this.lblMemberRegistrationDate.Size = new System.Drawing.Size(154, 21);
             this.lblMemberRegistrationDate.TabIndex = 36;
             this.lblMemberRegistrationDate.Text = "Registration Date";
-            // 
-            // cmbRole
-            // 
-            this.cmbRole.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(70, 35);
-            this.cmbRole.Name = "cmbRole";
-            this.cmbRole.Size = new System.Drawing.Size(121, 29);
-            this.cmbRole.TabIndex = 35;
             // 
             // lblMemberFirstName
             // 
@@ -292,7 +199,7 @@
             this.dtpMemberRegistrationDate.CalendarTitleForeColor = System.Drawing.Color.DimGray;
             this.dtpMemberRegistrationDate.CalendarTrailingForeColor = System.Drawing.Color.DimGray;
             this.dtpMemberRegistrationDate.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.dtpMemberRegistrationDate.Location = new System.Drawing.Point(392, 35);
+            this.dtpMemberRegistrationDate.Location = new System.Drawing.Point(204, 26);
             this.dtpMemberRegistrationDate.Name = "dtpMemberRegistrationDate";
             this.dtpMemberRegistrationDate.Size = new System.Drawing.Size(329, 33);
             this.dtpMemberRegistrationDate.TabIndex = 34;
@@ -381,6 +288,92 @@
             this.lblMemberEmail.TabIndex = 40;
             this.lblMemberEmail.Text = "Email";
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.White;
+            this.lblUsername.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F);
+            this.lblUsername.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblUsername.Location = new System.Drawing.Point(11, 215);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(106, 23);
+            this.lblUsername.TabIndex = 18;
+            this.lblUsername.Text = "Username";
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.White;
+            this.lblWelcome.Font = new System.Drawing.Font("Lucida Sans Unicode", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblWelcome.Location = new System.Drawing.Point(7, 164);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(169, 40);
+            this.lblWelcome.TabIndex = 17;
+            this.lblWelcome.Text = "Welcome!";
+            // 
+            // pbProfile
+            // 
+            this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
+            this.pbProfile.Location = new System.Drawing.Point(15, 21);
+            this.pbProfile.Name = "pbProfile";
+            this.pbProfile.Size = new System.Drawing.Size(151, 140);
+            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfile.TabIndex = 12;
+            this.pbProfile.TabStop = false;
+            // 
+            // btnTransaction
+            // 
+            this.btnTransaction.BackColor = System.Drawing.Color.White;
+            this.btnTransaction.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnTransaction.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnTransaction.Location = new System.Drawing.Point(30, 414);
+            this.btnTransaction.Name = "btnTransaction";
+            this.btnTransaction.Size = new System.Drawing.Size(119, 41);
+            this.btnTransaction.TabIndex = 28;
+            this.btnTransaction.Text = "Transaction";
+            this.btnTransaction.UseVisualStyleBackColor = false;
+            this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
+            // 
+            // btnMember
+            // 
+            this.btnMember.BackColor = System.Drawing.Color.White;
+            this.btnMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnMember.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnMember.Location = new System.Drawing.Point(30, 367);
+            this.btnMember.Name = "btnMember";
+            this.btnMember.Size = new System.Drawing.Size(119, 41);
+            this.btnMember.TabIndex = 27;
+            this.btnMember.Text = "Member";
+            this.btnMember.UseVisualStyleBackColor = false;
+            this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
+            // 
+            // btnStaff
+            // 
+            this.btnStaff.BackColor = System.Drawing.Color.White;
+            this.btnStaff.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnStaff.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnStaff.Location = new System.Drawing.Point(30, 320);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(119, 41);
+            this.btnStaff.TabIndex = 26;
+            this.btnStaff.Text = "Staff";
+            this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.BackColor = System.Drawing.Color.White;
+            this.btnAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnAdmin.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnAdmin.Location = new System.Drawing.Point(30, 275);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(119, 41);
+            this.btnAdmin.TabIndex = 25;
+            this.btnAdmin.Text = "Admin";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
             // frmViewMember
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -400,9 +393,10 @@
             this.Text = "View Member";
             this.Load += new System.EventHandler(this.frmViewMember_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMember)).EndInit();
             this.gpMemberAcc.ResumeLayout(false);
             this.gpMemberAcc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,15 +412,14 @@
         private System.Windows.Forms.Button btnMember;
         private System.Windows.Forms.Button btnStaff;
         private System.Windows.Forms.Button btnAdmin;
+        private System.Windows.Forms.DataGridView dgvMember;
         private System.Windows.Forms.GroupBox gpMemberAcc;
         private System.Windows.Forms.Button btnResetText;
         private System.Windows.Forms.Button btnDeleteMember;
         private System.Windows.Forms.Button btnUpdateMember;
         private System.Windows.Forms.Button btnCreateMember;
         private System.Windows.Forms.TextBox txtMemberFirstName;
-        private System.Windows.Forms.Label lblMemberRole;
         private System.Windows.Forms.Label lblMemberRegistrationDate;
-        private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label lblMemberFirstName;
         private System.Windows.Forms.DateTimePicker dtpMemberRegistrationDate;
         private System.Windows.Forms.Label lblMemberPassword;

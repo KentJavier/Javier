@@ -81,6 +81,7 @@
             this.dgvAdmin.RowTemplate.Height = 24;
             this.dgvAdmin.Size = new System.Drawing.Size(744, 260);
             this.dgvAdmin.TabIndex = 45;
+            this.dgvAdmin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAdmin_SelectionChanged);
             // 
             // gpAdminAcc
             // 
@@ -127,7 +128,7 @@
             this.btnDeleteAdmin.BackColor = System.Drawing.Color.White;
             this.btnDeleteAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnDeleteAdmin.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnDeleteAdmin.Location = new System.Drawing.Point(565, 173);
+            this.btnDeleteAdmin.Location = new System.Drawing.Point(560, 173);
             this.btnDeleteAdmin.Name = "btnDeleteAdmin";
             this.btnDeleteAdmin.Size = new System.Drawing.Size(75, 37);
             this.btnDeleteAdmin.TabIndex = 46;
@@ -140,7 +141,7 @@
             this.btnUpdateAdmin.BackColor = System.Drawing.Color.White;
             this.btnUpdateAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnUpdateAdmin.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnUpdateAdmin.Location = new System.Drawing.Point(484, 173);
+            this.btnUpdateAdmin.Location = new System.Drawing.Point(469, 173);
             this.btnUpdateAdmin.Name = "btnUpdateAdmin";
             this.btnUpdateAdmin.Size = new System.Drawing.Size(75, 37);
             this.btnUpdateAdmin.TabIndex = 45;
@@ -153,7 +154,7 @@
             this.btnCreateAdmin.BackColor = System.Drawing.Color.White;
             this.btnCreateAdmin.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnCreateAdmin.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnCreateAdmin.Location = new System.Drawing.Point(404, 173);
+            this.btnCreateAdmin.Location = new System.Drawing.Point(374, 173);
             this.btnCreateAdmin.Name = "btnCreateAdmin";
             this.btnCreateAdmin.Size = new System.Drawing.Size(75, 37);
             this.btnCreateAdmin.TabIndex = 44;

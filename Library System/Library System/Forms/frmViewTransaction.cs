@@ -28,32 +28,83 @@ namespace Library_System.Forms
 
         private void frmViewTransaction_Load(object sender, EventArgs e)
         {
+
             lblUsername.Text = $"{currentUserRole} {username}";
         }
 
-        private void frmViewStaff_Load(object sender, EventArgs e)
-        {
-            FormSwitcher.SwitchToForm(this, new frmViewStaff(UserRole.Admin, username));
-        }
+        // Function to switch forms
 
-        private void btnTransaction_Click(object sender, EventArgs e)
+        private void btnStaff_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmViewTransaction(UserRole.Admin, username));
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmViewStaff)];
+
+            if (frm != null)
+            {
+                // If the form is already open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If the form is not open, create a new instance
+                frmViewStaff viewStaff = new frmViewStaff(UserRole.Admin, username);
+                viewStaff.Show();
+            }
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmAdminDashboard(UserRole.Admin, username));
-        }
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmAdminDashboard)];
 
-        private void btnStaff_Click(object sender, EventArgs e)
-        {
-            FormSwitcher.SwitchToForm(this, new frmViewStaff(UserRole.Admin, username));
+            if (frm != null)
+            {
+                // If the form is already open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If the form is not open, create a new instance
+                frmAdminDashboard adminDashboard = new frmAdminDashboard(UserRole.Admin, username);
+                adminDashboard.Show();
+            }
         }
 
         private void btnMember_Click(object sender, EventArgs e)
         {
-            FormSwitcher.SwitchToForm(this, new frmViewMember(UserRole.Admin, username));
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmViewMember)];
+
+            if (frm != null)
+            {
+                // If the form is already open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If the form is not open, create a new instance
+                frmViewMember viewMember = new frmViewMember(UserRole.Admin, username);
+                viewMember.Show();
+            }
         }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            // Check if the form is already open
+            Form frm = Application.OpenForms[nameof(frmViewTransaction)];
+
+            if (frm != null)
+            {
+                // If the form is already open, bring it to the front
+                frm.BringToFront();
+            }
+            else
+            {
+                // If the form is not open, create a new instance
+                frmViewTransaction viewTransaction = new frmViewTransaction(UserRole.Admin, username);
+                viewTransaction.Show();
+            }
+        }
+
     }
 }
