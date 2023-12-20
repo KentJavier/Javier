@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibrarySystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LibrarySystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -206,6 +206,55 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spDeleteAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminFirstName" Type="varchar" Mode="In" />
+          <Parameter Name="AdminLastName" Type="varchar" Mode="In" />
+          <Parameter Name="AdminEmail" Type="varchar" Mode="In" />
+          <Parameter Name="AdminUsername" Type="varchar" Mode="In" />
+          <Parameter Name="AdminPassword" Type="varchar" Mode="In" />
+          <Parameter Name="AdminRegistrationDate" Type="datetime" Mode="In" />
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spInsertAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AdminFirstName" Type="varchar" Mode="In" />
+          <Parameter Name="AdminLastName" Type="varchar" Mode="In" />
+          <Parameter Name="AdminEmail" Type="varchar" Mode="In" />
+          <Parameter Name="AdminUsername" Type="varchar" Mode="In" />
+          <Parameter Name="AdminPassword" Type="varchar" Mode="In" />
+          <Parameter Name="AdminRegistrationDate" Type="datetime" Mode="In" />
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="LibrarySystemModelStoreContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
@@ -276,11 +325,109 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LibrarySystemModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LibrarySystemModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spDeleteAdmin">
+            <Parameter Name="AdminFirstName" Mode="In" Type="String" />
+            <Parameter Name="AdminLastName" Mode="In" Type="String" />
+            <Parameter Name="AdminEmail" Mode="In" Type="String" />
+            <Parameter Name="AdminUsername" Mode="In" Type="String" />
+            <Parameter Name="AdminPassword" Mode="In" Type="String" />
+            <Parameter Name="AdminRegistrationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spInsertAdmin">
+            <Parameter Name="AdminFirstName" Mode="In" Type="String" />
+            <Parameter Name="AdminLastName" Mode="In" Type="String" />
+            <Parameter Name="AdminEmail" Mode="In" Type="String" />
+            <Parameter Name="AdminUsername" Mode="In" Type="String" />
+            <Parameter Name="AdminPassword" Mode="In" Type="String" />
+            <Parameter Name="AdminRegistrationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Admins" EntityType="LibrarySystemModel.Admins" />
+          <EntitySet Name="Authors" EntityType="LibrarySystemModel.Authors" />
+          <EntitySet Name="Books" EntityType="LibrarySystemModel.Books" />
+          <EntitySet Name="Members" EntityType="LibrarySystemModel.Members" />
+          <EntitySet Name="Roles" EntityType="LibrarySystemModel.Roles" />
+          <EntitySet Name="Staffs" EntityType="LibrarySystemModel.Staffs" />
+          <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
+          <EntitySet Name="vwAdmins" EntityType="LibrarySystemModel.vwAdmins" />
+          <EntitySet Name="vwMembers" EntityType="LibrarySystemModel.vwMembers" />
+          <EntitySet Name="vwStaffs" EntityType="LibrarySystemModel.vwStaffs" />
+          <AssociationSet Name="FK_Admins_Roles" Association="LibrarySystemModel.FK_Admins_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Admins" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Books_Authors" Association="LibrarySystemModel.FK_Books_Authors">
+            <End Role="Authors" EntitySet="Authors" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Books" Association="LibrarySystemModel.FK_Transactions_Books">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Members_Roles" Association="LibrarySystemModel.FK_Members_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Members" Association="LibrarySystemModel.FK_Transactions_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staffs_Roles" Association="LibrarySystemModel.FK_Staffs_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Staffs" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Staffs" Association="LibrarySystemModel.FK_Transactions_Staffs">
+            <End Role="Staffs" EntitySet="Staffs" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="AdminId" />
@@ -293,7 +440,7 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
           <Property Name="RoleId" Type="Int32" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
+          <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
         </EntityType>
         <EntityType Name="Authors">
           <Key>
@@ -302,7 +449,7 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AuthorBDay" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Books" Relationship="Self.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
+          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
         </EntityType>
         <EntityType Name="Books">
           <Key>
@@ -313,8 +460,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="AuthorId" Type="Int32" />
           <Property Name="BookGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="BookCopies" Type="Int32" />
-          <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
+          <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
+          <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Members">
           <Key>
@@ -328,8 +475,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
           <Property Name="RoleId" Type="Int32" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
+          <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
+          <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -337,9 +484,9 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </Key>
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Admins" Relationship="Self.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
-          <NavigationProperty Name="Members" Relationship="Self.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
-          <NavigationProperty Name="Staffs" Relationship="Self.FK_Staffs_Roles" FromRole="Roles" ToRole="Staffs" />
+          <NavigationProperty Name="Admins" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
+          <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
+          <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Roles" ToRole="Staffs" />
         </EntityType>
         <EntityType Name="Staffs">
           <Key>
@@ -353,8 +500,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
+          <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
+          <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Transactions">
           <Key>
@@ -366,9 +513,9 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TransactionDate" Type="DateTime" Precision="0" />
           <Property Name="StaffId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Books" Relationship="Self.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
-          <NavigationProperty Name="Members" Relationship="Self.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
-          <NavigationProperty Name="Staffs" Relationship="Self.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
+          <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
+          <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
+          <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
         </EntityType>
         <EntityType Name="vwAdmins">
           <Key>
@@ -407,8 +554,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Admins_Roles">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-          <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />
+          <End Type="LibrarySystemModel.Admins" Role="Admins" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RoleId" />
@@ -419,8 +566,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Books_Authors">
-          <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
-          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Authors" Role="Authors" Multiplicity="0..1" />
+          <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Authors">
               <PropertyRef Name="AuthorId" />
@@ -431,8 +578,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transactions_Books">
-          <End Role="Books" Type="Self.Books" Multiplicity="1" />
-          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="1" />
+          <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Books">
               <PropertyRef Name="BookId" />
@@ -443,8 +590,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Members_Roles">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />
+          <End Type="LibrarySystemModel.Members" Role="Members" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RoleId" />
@@ -455,8 +602,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transactions_Members">
-          <End Role="Members" Type="Self.Members" Multiplicity="1" />
-          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Members" Role="Members" Multiplicity="1" />
+          <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
               <PropertyRef Name="MemberId" />
@@ -467,8 +614,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Staffs_Roles">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-          <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="LibrarySystemModel.Staffs" Role="Staffs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Roles">
               <PropertyRef Name="RoleId" />
@@ -479,8 +626,8 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transactions_Staffs">
-          <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
-          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <End Type="LibrarySystemModel.Staffs" Role="Staffs" Multiplicity="1" />
+          <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Staffs">
               <PropertyRef Name="StaffId" />
@@ -490,174 +637,160 @@ warning 6002: The table/view 'LibrarySystem.dbo.vwStaffs' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admins" EntityType="Self.Admins" />
-          <EntitySet Name="Authors" EntityType="Self.Authors" />
-          <EntitySet Name="Books" EntityType="Self.Books" />
-          <EntitySet Name="Members" EntityType="Self.Members" />
-          <EntitySet Name="Roles" EntityType="Self.Roles" />
-          <EntitySet Name="Staffs" EntityType="Self.Staffs" />
-          <EntitySet Name="Transactions" EntityType="Self.Transactions" />
-          <EntitySet Name="vwAdmins" EntityType="Self.vwAdmins" />
-          <EntitySet Name="vwMembers" EntityType="Self.vwMembers" />
-          <EntitySet Name="vwStaffs" EntityType="Self.vwStaffs" />
-          <AssociationSet Name="FK_Admins_Roles" Association="Self.FK_Admins_Roles">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Admins" EntitySet="Admins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
-            <End Role="Authors" EntitySet="Authors" />
-            <End Role="Books" EntitySet="Books" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transactions_Books" Association="Self.FK_Transactions_Books">
-            <End Role="Books" EntitySet="Books" />
-            <End Role="Transactions" EntitySet="Transactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Members" EntitySet="Members" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transactions_Members" Association="Self.FK_Transactions_Members">
-            <End Role="Members" EntitySet="Members" />
-            <End Role="Transactions" EntitySet="Transactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Staffs_Roles" Association="Self.FK_Staffs_Roles">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="Staffs" EntitySet="Staffs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Transactions_Staffs" Association="Self.FK_Transactions_Staffs">
-            <End Role="Staffs" EntitySet="Staffs" />
-            <End Role="Transactions" EntitySet="Transactions" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="LibrarySystemModelStoreContainer" CdmEntityContainer="LibrarySystemEntities">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="LibrarySystemModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="LibrarySystemModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="LibrarySystemModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="LibrarySystemModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibrarySystemModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="LibrarySystemModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibrarySystemModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="LibrarySystemModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="LibrarySystemModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spDeleteAdmin" FunctionName="LibrarySystemModel.Store.spDeleteAdmin" />
+          <FunctionImportMapping FunctionImportName="spInsertAdmin" FunctionName="LibrarySystemModel.Store.spInsertAdmin" />
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="LibrarySystemModel.Admins">
               <MappingFragment StoreEntitySet="Admins">
-                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
-                <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
-                <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
-                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
-                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
-                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
-                <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+                <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Authors">
             <EntityTypeMapping TypeName="LibrarySystemModel.Authors">
               <MappingFragment StoreEntitySet="Authors">
-                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
-                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
                 <ScalarProperty Name="AuthorBDay" ColumnName="AuthorBDay" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibrarySystemModel.Books">
               <MappingFragment StoreEntitySet="Books">
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
-                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
-                <ScalarProperty Name="BookGenre" ColumnName="BookGenre" />
                 <ScalarProperty Name="BookCopies" ColumnName="BookCopies" />
+                <ScalarProperty Name="BookGenre" ColumnName="BookGenre" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="LibrarySystemModel.Members">
               <MappingFragment StoreEntitySet="Members">
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
-                <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
-                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
-                <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
-                <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
-                <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+                <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+                <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+                <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+                <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="LibrarySystemModel.Roles">
               <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="LibrarySystemModel.Staffs">
               <MappingFragment StoreEntitySet="Staffs">
-                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
-                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
-                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
-                <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
-                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
-                <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
+                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+                <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="LibrarySystemModel.Transactions">
               <MappingFragment StoreEntitySet="Transactions">
-                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="BookId" ColumnName="BookId" />
-                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
-                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
                 <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vwAdmins">
             <EntityTypeMapping TypeName="LibrarySystemModel.vwAdmins">
               <MappingFragment StoreEntitySet="vwAdmins">
-                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
-                <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
-                <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
-                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
-                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
-                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
                 <ScalarProperty Name="AdminRegistrationDate" ColumnName="AdminRegistrationDate" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+                <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vwMembers">
             <EntityTypeMapping TypeName="LibrarySystemModel.vwMembers">
               <MappingFragment StoreEntitySet="vwMembers">
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
-                <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
-                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
-                <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
-                <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
                 <ScalarProperty Name="MemberRegistrationDate" ColumnName="MemberRegistrationDate" />
+                <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+                <ScalarProperty Name="MemberUsername" ColumnName="MemberUsername" />
+                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+                <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+                <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="vwStaffs">
             <EntityTypeMapping TypeName="LibrarySystemModel.vwStaffs">
               <MappingFragment StoreEntitySet="vwStaffs">
-                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
-                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
-                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
-                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
-                <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
-                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
                 <ScalarProperty Name="StaffRegistrationDate" ColumnName="StaffRegistrationDate" />
+                <ScalarProperty Name="StaffPassword" ColumnName="StaffPassword" />
+                <ScalarProperty Name="StaffUsername" ColumnName="StaffUsername" />
+                <ScalarProperty Name="StaffEmail" ColumnName="StaffEmail" />
+                <ScalarProperty Name="StaffLastName" ColumnName="StaffLastName" />
+                <ScalarProperty Name="StaffFirstName" ColumnName="StaffFirstName" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

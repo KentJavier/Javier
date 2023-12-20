@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,8 @@ namespace Library_System
             try
             {
                 Console.WriteLine($"User Details: FirstName={FirstName}, LastName={LastName}, Email={Email}, Username={Username}, Password={Password}, RegistrationDate={RegistrationDate}, RoleId={RoleId}");
-
+                
+                
                 using (var db = new LibrarySystemEntities())
                 {
                     switch (RoleId)
@@ -93,6 +96,7 @@ namespace Library_System
         {
             try
             {
+                
                 using (var db = new LibrarySystemEntities())
                 {
                     var admin = db.Admins.FirstOrDefault(a => a.AdminUsername == username && a.AdminPassword == password);

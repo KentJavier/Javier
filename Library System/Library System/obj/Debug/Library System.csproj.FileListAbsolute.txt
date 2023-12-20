@@ -69,3 +69,26 @@ C:\Users\a\Documents\LibreaLearnFinalProj\Library System\Library System\obj\Debu
 C:\Users\a\Documents\LibreaLearnFinalProj\Library System\Library System\obj\Debug\Library System.csproj.CopyComplete
 C:\Users\a\Documents\LibreaLearnFinalProj\Library System\Library System\obj\Debug\Library System.exe
 C:\Users\a\Documents\LibreaLearnFinalProj\Library System\Library System\obj\Debug\Library System.pdb
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.csproj.AssemblyReference.cache
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.frmLogin.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.frmMemberDashboard.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.frmStaffDashboard.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.Properties.Resources.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.frmRegister.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.csproj.GenerateResource.cache
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.csproj.CoreCompileInputs.cache
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\App.config
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\Library System.exe.config
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\Library System.exe
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\Library System.pdb
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\EntityFramework.dll
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\EntityFramework.xml
+C:\Users\a\Documents\Javier\Library System\Library System\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.frmAdminDashboard.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.Forms.frmViewMember.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.Forms.frmViewStaff.resources
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.csproj.CopyComplete
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.exe
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library System.pdb
+C:\Users\a\Documents\Javier\Library System\Library System\obj\Debug\Library_System.Forms.frmViewTransaction.resources

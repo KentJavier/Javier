@@ -1,5 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="LibrarySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LibrarySystemModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LibrarySystemModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spDeleteAdmin">
+      <Parameter Name="AdminFirstName" Mode="In" Type="String" />
+      <Parameter Name="AdminLastName" Mode="In" Type="String" />
+      <Parameter Name="AdminEmail" Mode="In" Type="String" />
+      <Parameter Name="AdminUsername" Mode="In" Type="String" />
+      <Parameter Name="AdminPassword" Mode="In" Type="String" />
+      <Parameter Name="AdminRegistrationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spInsertAdmin">
+      <Parameter Name="AdminFirstName" Mode="In" Type="String" />
+      <Parameter Name="AdminLastName" Mode="In" Type="String" />
+      <Parameter Name="AdminEmail" Mode="In" Type="String" />
+      <Parameter Name="AdminUsername" Mode="In" Type="String" />
+      <Parameter Name="AdminPassword" Mode="In" Type="String" />
+      <Parameter Name="AdminRegistrationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Admins" EntityType="LibrarySystemModel.Admins" />
+    <EntitySet Name="Authors" EntityType="LibrarySystemModel.Authors" />
+    <EntitySet Name="Books" EntityType="LibrarySystemModel.Books" />
+    <EntitySet Name="Members" EntityType="LibrarySystemModel.Members" />
+    <EntitySet Name="Roles" EntityType="LibrarySystemModel.Roles" />
+    <EntitySet Name="Staffs" EntityType="LibrarySystemModel.Staffs" />
+    <EntitySet Name="Transactions" EntityType="LibrarySystemModel.Transactions" />
+    <EntitySet Name="vwAdmins" EntityType="LibrarySystemModel.vwAdmins" />
+    <EntitySet Name="vwMembers" EntityType="LibrarySystemModel.vwMembers" />
+    <EntitySet Name="vwStaffs" EntityType="LibrarySystemModel.vwStaffs" />
+    <AssociationSet Name="FK_Admins_Roles" Association="LibrarySystemModel.FK_Admins_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Books_Authors" Association="LibrarySystemModel.FK_Books_Authors">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Books" Association="LibrarySystemModel.FK_Transactions_Books">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Members_Roles" Association="LibrarySystemModel.FK_Members_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Members" Association="LibrarySystemModel.FK_Transactions_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staffs_Roles" Association="LibrarySystemModel.FK_Staffs_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Staffs" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Staffs" Association="LibrarySystemModel.FK_Transactions_Staffs">
+      <End Role="Staffs" EntitySet="Staffs" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
   <EntityType Name="Admins">
     <Key>
       <PropertyRef Name="AdminId" />
@@ -12,7 +111,7 @@
     <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AdminRegistrationDate" Type="DateTime" Precision="3" />
     <Property Name="RoleId" Type="Int32" />
-    <NavigationProperty Name="Roles" Relationship="Self.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
+    <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Admins" ToRole="Roles" />
   </EntityType>
   <EntityType Name="Authors">
     <Key>
@@ -21,7 +120,7 @@
     <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AuthorBDay" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="Books" Relationship="Self.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
+    <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Authors" ToRole="Books" />
   </EntityType>
   <EntityType Name="Books">
     <Key>
@@ -32,8 +131,8 @@
     <Property Name="AuthorId" Type="Int32" />
     <Property Name="BookGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="BookCopies" Type="Int32" />
-    <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
-    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
+    <NavigationProperty Name="Authors" Relationship="LibrarySystemModel.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
+    <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
   </EntityType>
   <EntityType Name="Members">
     <Key>
@@ -47,8 +146,8 @@
     <Property Name="MemberPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MemberRegistrationDate" Type="DateTime" Precision="3" />
     <Property Name="RoleId" Type="Int32" />
-    <NavigationProperty Name="Roles" Relationship="Self.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
-    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
+    <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Members" ToRole="Roles" />
+    <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Members" ToRole="Transactions" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -56,9 +155,9 @@
     </Key>
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Admins" Relationship="Self.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
-    <NavigationProperty Name="Members" Relationship="Self.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
-    <NavigationProperty Name="Staffs" Relationship="Self.FK_Staffs_Roles" FromRole="Roles" ToRole="Staffs" />
+    <NavigationProperty Name="Admins" Relationship="LibrarySystemModel.FK_Admins_Roles" FromRole="Roles" ToRole="Admins" />
+    <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Members_Roles" FromRole="Roles" ToRole="Members" />
+    <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Roles" ToRole="Staffs" />
   </EntityType>
   <EntityType Name="Staffs">
     <Key>
@@ -72,8 +171,8 @@
     <Property Name="StaffPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
     <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Roles" Relationship="Self.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
-    <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
+    <NavigationProperty Name="Roles" Relationship="LibrarySystemModel.FK_Staffs_Roles" FromRole="Staffs" ToRole="Roles" />
+    <NavigationProperty Name="Transactions" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Staffs" ToRole="Transactions" />
   </EntityType>
   <EntityType Name="Transactions">
     <Key>
@@ -85,9 +184,9 @@
     <Property Name="TransactionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="TransactionDate" Type="DateTime" Precision="0" />
     <Property Name="StaffId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Books" Relationship="Self.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
-    <NavigationProperty Name="Members" Relationship="Self.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
-    <NavigationProperty Name="Staffs" Relationship="Self.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
+    <NavigationProperty Name="Books" Relationship="LibrarySystemModel.FK_Transactions_Books" FromRole="Transactions" ToRole="Books" />
+    <NavigationProperty Name="Members" Relationship="LibrarySystemModel.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
+    <NavigationProperty Name="Staffs" Relationship="LibrarySystemModel.FK_Transactions_Staffs" FromRole="Transactions" ToRole="Staffs" />
   </EntityType>
   <EntityType Name="vwAdmins">
     <Key>
@@ -126,8 +225,8 @@
     <Property Name="StaffRegistrationDate" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Admins_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-    <End Role="Admins" Type="Self.Admins" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="LibrarySystemModel.Admins" Role="Admins" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -138,8 +237,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Books_Authors">
-    <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
-    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Authors" Role="Authors" Multiplicity="0..1" />
+    <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Authors">
         <PropertyRef Name="AuthorId" />
@@ -150,8 +249,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Transactions_Books">
-    <End Role="Books" Type="Self.Books" Multiplicity="1" />
-    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Books" Role="Books" Multiplicity="1" />
+    <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Books">
         <PropertyRef Name="BookId" />
@@ -162,8 +261,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Members_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
-    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="0..1" />
+    <End Type="LibrarySystemModel.Members" Role="Members" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -174,8 +273,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Transactions_Members">
-    <End Role="Members" Type="Self.Members" Multiplicity="1" />
-    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Members" Role="Members" Multiplicity="1" />
+    <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">
         <PropertyRef Name="MemberId" />
@@ -186,8 +285,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Staffs_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="Staffs" Type="Self.Staffs" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Roles" Role="Roles" Multiplicity="1" />
+    <End Type="LibrarySystemModel.Staffs" Role="Staffs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="RoleId" />
@@ -198,8 +297,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Transactions_Staffs">
-    <End Role="Staffs" Type="Self.Staffs" Multiplicity="1" />
-    <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+    <End Type="LibrarySystemModel.Staffs" Role="Staffs" Multiplicity="1" />
+    <End Type="LibrarySystemModel.Transactions" Role="Transactions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Staffs">
         <PropertyRef Name="StaffId" />
@@ -209,44 +308,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="LibrarySystemEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Admins" EntityType="Self.Admins" />
-    <EntitySet Name="Authors" EntityType="Self.Authors" />
-    <EntitySet Name="Books" EntityType="Self.Books" />
-    <EntitySet Name="Members" EntityType="Self.Members" />
-    <EntitySet Name="Roles" EntityType="Self.Roles" />
-    <EntitySet Name="Staffs" EntityType="Self.Staffs" />
-    <EntitySet Name="Transactions" EntityType="Self.Transactions" />
-    <EntitySet Name="vwAdmins" EntityType="Self.vwAdmins" />
-    <EntitySet Name="vwMembers" EntityType="Self.vwMembers" />
-    <EntitySet Name="vwStaffs" EntityType="Self.vwStaffs" />
-    <AssociationSet Name="FK_Admins_Roles" Association="Self.FK_Admins_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Admins" EntitySet="Admins" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Books_Authors" Association="Self.FK_Books_Authors">
-      <End Role="Authors" EntitySet="Authors" />
-      <End Role="Books" EntitySet="Books" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Transactions_Books" Association="Self.FK_Transactions_Books">
-      <End Role="Books" EntitySet="Books" />
-      <End Role="Transactions" EntitySet="Transactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Members_Roles" Association="Self.FK_Members_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Members" EntitySet="Members" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Transactions_Members" Association="Self.FK_Transactions_Members">
-      <End Role="Members" EntitySet="Members" />
-      <End Role="Transactions" EntitySet="Transactions" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Staffs_Roles" Association="Self.FK_Staffs_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Staffs" EntitySet="Staffs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Transactions_Staffs" Association="Self.FK_Transactions_Staffs">
-      <End Role="Staffs" EntitySet="Staffs" />
-      <End Role="Transactions" EntitySet="Transactions" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

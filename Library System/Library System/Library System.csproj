@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
@@ -56,12 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adminControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="adminControl.Designer.cs">
-      <DependentUpon>adminControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="AppData\Admins.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
@@ -92,6 +87,12 @@
     <Compile Include="AppData\Roles.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LibrarySystemModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Staffs.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
@@ -107,74 +108,82 @@
     <Compile Include="AppData\vwStaffs.cs">
       <DependentUpon>LibrarySystemModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmAdminDashboard.cs">
+    <Compile Include="Forms\frmAdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdminDashboard.Designer.cs">
+    <Compile Include="Forms\frmAdminDashboard.Designer.cs">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Forms\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Forms\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMemberDashboard.cs">
+    <Compile Include="Forms\frmMemberDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMemberDashboard.Designer.cs">
+    <Compile Include="Forms\frmMemberDashboard.Designer.cs">
       <DependentUpon>frmMemberDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStaffDashboard.cs">
+    <Compile Include="Forms\frmStaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStaffDashboard.Designer.cs">
+    <Compile Include="Forms\frmStaffDashboard.Designer.cs">
       <DependentUpon>frmStaffDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="memberControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="AppData\LibrarySystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibrarySystemDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="memberControl.Designer.cs">
-      <DependentUpon>memberControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="frmRegister.cs">
+    <Compile Include="Class\Program.cs" />
+    <Compile Include="Forms\frmViewTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegister.Designer.cs">
+    <Compile Include="Forms\frmViewTransaction.Designer.cs">
+      <DependentUpon>frmViewTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewMember.Designer.cs">
+      <DependentUpon>frmViewMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmViewStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmViewStaff.Designer.cs">
+      <DependentUpon>frmViewStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\frmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRegister.Designer.cs">
       <DependentUpon>frmRegister.cs</DependentUpon>
     </Compile>
-    <Compile Include="staffControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="staffControl.Designer.cs">
-      <DependentUpon>staffControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="transactionControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="transactionControl.Designer.cs">
-      <DependentUpon>transactionControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserRepository.cs" />
-    <EmbeddedResource Include="adminControl.resx">
-      <DependentUpon>adminControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAdminDashboard.resx">
+    <Compile Include="Class\UserRepository.cs" />
+    <EmbeddedResource Include="Forms\frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMemberDashboard.resx">
+    <EmbeddedResource Include="Forms\frmMemberDashboard.resx">
       <DependentUpon>frmMemberDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStaffDashboard.resx">
+    <EmbeddedResource Include="Forms\frmStaffDashboard.resx">
       <DependentUpon>frmStaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="memberControl.resx">
-      <DependentUpon>memberControl.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmViewTransaction.resx">
+      <DependentUpon>frmViewTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewMember.resx">
+      <DependentUpon>frmViewMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmViewStaff.resx">
+      <DependentUpon>frmViewStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,14 +194,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmRegister.resx">
+    <EmbeddedResource Include="Forms\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="staffControl.resx">
-      <DependentUpon>staffControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="transactionControl.resx">
-      <DependentUpon>transactionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="AppData\LibrarySystemModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -200,6 +203,17 @@
     </EntityDeploy>
     <None Include="AppData\LibrarySystemModel.edmx.diagram">
       <DependentUpon>LibrarySystemModel.edmx</DependentUpon>
+    </None>
+    <None Include="AppData\LibrarySystemDataSet.xsc">
+      <DependentUpon>LibrarySystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AppData\LibrarySystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibrarySystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AppData\LibrarySystemDataSet.xss">
+      <DependentUpon>LibrarySystemDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -213,7 +227,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

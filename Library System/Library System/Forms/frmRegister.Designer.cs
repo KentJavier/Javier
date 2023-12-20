@@ -36,7 +36,6 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblRegistrationDate = new System.Windows.Forms.Label();
             this.dtpRegistrationDate = new System.Windows.Forms.DateTimePicker();
@@ -60,7 +59,6 @@
             this.pnlWhite.Controls.Add(this.lblLastName);
             this.pnlWhite.Controls.Add(this.lblEmail);
             this.pnlWhite.Controls.Add(this.lblUsername);
-            this.pnlWhite.Controls.Add(this.label4);
             this.pnlWhite.Controls.Add(this.lblFirstName);
             this.pnlWhite.Controls.Add(this.lblRegistrationDate);
             this.pnlWhite.Controls.Add(this.dtpRegistrationDate);
@@ -80,7 +78,7 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.lblRole.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblRole.Location = new System.Drawing.Point(10, 19);
+            this.lblRole.Location = new System.Drawing.Point(10, 14);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(47, 21);
             this.lblRole.TabIndex = 17;
@@ -91,7 +89,7 @@
             this.cmbRoles.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
             this.cmbRoles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.cmbRoles.FormattingEnabled = true;
-            this.cmbRoles.Location = new System.Drawing.Point(28, 43);
+            this.cmbRoles.Location = new System.Drawing.Point(28, 38);
             this.cmbRoles.Name = "cmbRoles";
             this.cmbRoles.Size = new System.Drawing.Size(121, 29);
             this.cmbRoles.TabIndex = 8;
@@ -139,17 +137,6 @@
             this.lblUsername.Size = new System.Drawing.Size(93, 21);
             this.lblUsername.TabIndex = 13;
             this.lblUsername.Text = "Username";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(8, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Password";
             // 
             // lblFirstName
             // 
@@ -295,7 +282,6 @@
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblPassword;
         
