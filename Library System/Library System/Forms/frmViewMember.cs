@@ -32,6 +32,8 @@ namespace Library_System.Forms
         {
             lblUsername.Text = $"{currentUserRole} {username}";
             LoadMembersData();
+
+            dgvMember.SelectionChanged += dgvMember_SelectionChanged;
         }
 
         // Function to switch forms

@@ -25,7 +25,8 @@ namespace Library_System.Forms
             InitializeComponent();
             currentUserRole = role;
             this.username = username;
-            //dgvAdmin.SelectionChanged += dgvAdmin_SelectionChanged;
+            
+            dgvStaff.SelectionChanged += dgvStaff_SelectionChanged;
         }
 
         private void frmViewStaff_Load(object sender, EventArgs e)

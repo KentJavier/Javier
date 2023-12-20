@@ -13,7 +13,6 @@ DBCC CHECKIDENT ('Books', RESEED, 0);
 CREATE VIEW vwAdmins
 AS
 SELECT
-(
 	AdminId,
 	AdminFirstName,
 	AdminLastName,
@@ -21,7 +20,6 @@ SELECT
 	AdminUsername,
 	AdminPassword,
 	AdminRegistrationDate
-)
 FROM
 	Admins
 
@@ -29,7 +27,6 @@ FROM
 CREATE VIEW vwStaffs
 AS
 SELECT
-(
 	StaffId,
 	StaffFirstName,
 	StaffLastName,
@@ -37,7 +34,6 @@ SELECT
 	StaffUsername,
 	StaffPassword,
 	StaffRegistrationDate
-)
 FROM
 	Staffs
 
@@ -45,7 +41,6 @@ FROM
 CREATE VIEW vwMembers
 AS
 SELECT
-(
 	MemberId,
 	MemberFirstName,
 	MemberLastName,
@@ -53,9 +48,20 @@ SELECT
 	MemberUsername,
 	MemberPassword,
 	MemberRegistrationDate
-)
 FROM
 	Members	
+
+-- To view Books Table
+CREATE VIEW vwBooks
+AS
+SELECT
+    BookId,
+    BookTitle,
+    AuthorName,
+    BookGenre,
+    BookCopies
+FROM
+    Books;
 
 /* Store Procedure */
 
@@ -213,4 +219,50 @@ BEGIN
         MemberPassword = @MemberPassword,
         MemberRegistrationDate = @MemberRegistrationDate
     WHERE MemberID = @MemberID;
+END;
+
+-- To insert values in Books table
+CREATE PROCEDURE spInsertBook
+(
+    @BookTitle varchar(50),
+    @AuthorName varchar(50),
+    @BookGenre varchar(50),
+    @BookCopies int
+)
+AS
+BEGIN
+    INSERT INTO Books (BookTitle, AuthorName, BookGenre, BookCopies)
+    VALUES (@BookTitle, @AuthorName, @BookGenre, @BookCopies);
+END;
+
+-- To delete values
+CREATE PROCEDURE spDeleteBook
+(
+    @BookId int
+)
+AS
+BEGIN
+    DELETE FROM Books
+    WHERE BookId = @BookId;
+END;
+
+-- To update values
+CREATE PROCEDURE spUpdateBook
+(
+    @BookId int,
+    @BookTitle varchar(50),
+    @AuthorName varchar(50),
+    @BookGenre varchar(50),
+    @BookCopies int
+)
+AS
+BEGIN
+    UPDATE Books
+    SET
+        BookTitle = @BookTitle,
+        AuthorName = @AuthorName,
+        BookGenre = @BookGenre,
+        BookCopies = @BookCopies
+    WHERE
+        BookId = @BookId;
 END;

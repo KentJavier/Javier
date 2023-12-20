@@ -30,333 +30,332 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffDashboard));
             this.pnlBooks = new System.Windows.Forms.Panel();
-            this.dgvBook = new System.Windows.Forms.DataGridView();
-            this.dgBookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgBookTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgBookGenre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgBookCopies = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbBook = new System.Windows.Forms.GroupBox();
-            this.btnUpdateBook = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.txtBookQty = new System.Windows.Forms.TextBox();
-            this.lblBookQty = new System.Windows.Forms.Label();
+            this.btnTransaction = new System.Windows.Forms.Button();
+            this.btnMember = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.btnStaff = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnBooks = new System.Windows.Forms.Button();
+            this.pbProfile = new System.Windows.Forms.PictureBox();
+            this.gpBooks = new System.Windows.Forms.GroupBox();
+            this.btnResetText = new System.Windows.Forms.Button();
             this.btnDeleteBook = new System.Windows.Forms.Button();
-            this.txtBookGenre = new System.Windows.Forms.TextBox();
-            this.lblBookGenre = new System.Windows.Forms.Label();
+            this.btnUpdateBook = new System.Windows.Forms.Button();
+            this.btnCreateBook = new System.Windows.Forms.Button();
             this.txtBookTitle = new System.Windows.Forms.TextBox();
             this.lblBookTitle = new System.Windows.Forms.Label();
-            this.btnAddBook = new System.Windows.Forms.Button();
-            this.pbUserProfile = new System.Windows.Forms.PictureBox();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.lblUsernameProfile = new System.Windows.Forms.Label();
-            this.btnMemberMenu = new System.Windows.Forms.Button();
-            this.btnTransactionMenu = new System.Windows.Forms.Button();
-            this.btnStaffMenu = new System.Windows.Forms.Button();
-            this.btnAddUser = new System.Windows.Forms.Button();
+            this.txtBookGenre = new System.Windows.Forms.TextBox();
+            this.lblBookGenre = new System.Windows.Forms.Label();
+            this.lblAuthorName = new System.Windows.Forms.Label();
+            this.txtBookQty = new System.Windows.Forms.TextBox();
+            this.txtAuthorName = new System.Windows.Forms.TextBox();
+            this.lblBookCopies = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.dgvBook = new System.Windows.Forms.DataGridView();
             this.pnlBooks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
-            this.gbBook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).BeginInit();
+            this.gpBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBooks
             // 
             this.pnlBooks.BackColor = System.Drawing.Color.SteelBlue;
             this.pnlBooks.Controls.Add(this.dgvBook);
-            this.pnlBooks.Controls.Add(this.gbBook);
-            this.pnlBooks.Location = new System.Drawing.Point(208, 1);
+            this.pnlBooks.Controls.Add(this.gpBooks);
+            this.pnlBooks.Location = new System.Drawing.Point(186, -1);
             this.pnlBooks.Name = "pnlBooks";
-            this.pnlBooks.Size = new System.Drawing.Size(678, 589);
+            this.pnlBooks.Size = new System.Drawing.Size(784, 518);
             this.pnlBooks.TabIndex = 8;
             // 
-            // dgvBook
+            // btnTransaction
             // 
-            this.dgvBook.AllowUserToDeleteRows = false;
-            this.dgvBook.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgBookId,
-            this.dgBookTitle,
-            this.dgBookGenre,
-            this.dgBookCopies});
-            this.dgvBook.Location = new System.Drawing.Point(20, 300);
-            this.dgvBook.Name = "dgvBook";
-            this.dgvBook.ReadOnly = true;
-            this.dgvBook.RowHeadersWidth = 51;
-            this.dgvBook.RowTemplate.Height = 24;
-            this.dgvBook.Size = new System.Drawing.Size(634, 278);
-            this.dgvBook.TabIndex = 6;
+            this.btnTransaction.BackColor = System.Drawing.Color.White;
+            this.btnTransaction.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnTransaction.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnTransaction.Location = new System.Drawing.Point(30, 414);
+            this.btnTransaction.Name = "btnTransaction";
+            this.btnTransaction.Size = new System.Drawing.Size(119, 41);
+            this.btnTransaction.TabIndex = 35;
+            this.btnTransaction.Text = "Transaction";
+            this.btnTransaction.UseVisualStyleBackColor = false;
             // 
-            // dgBookId
+            // btnMember
             // 
-            this.dgBookId.DataPropertyName = "BookId";
-            this.dgBookId.HeaderText = "BookId";
-            this.dgBookId.MinimumWidth = 6;
-            this.dgBookId.Name = "dgBookId";
-            this.dgBookId.ReadOnly = true;
-            this.dgBookId.Visible = false;
-            this.dgBookId.Width = 79;
+            this.btnMember.BackColor = System.Drawing.Color.White;
+            this.btnMember.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnMember.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnMember.Location = new System.Drawing.Point(30, 367);
+            this.btnMember.Name = "btnMember";
+            this.btnMember.Size = new System.Drawing.Size(119, 41);
+            this.btnMember.TabIndex = 34;
+            this.btnMember.Text = "Member";
+            this.btnMember.UseVisualStyleBackColor = false;
             // 
-            // dgBookTitle
+            // lblUsername
             // 
-            this.dgBookTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgBookTitle.DataPropertyName = "BookTitle";
-            this.dgBookTitle.HeaderText = "Book Title";
-            this.dgBookTitle.MinimumWidth = 6;
-            this.dgBookTitle.Name = "dgBookTitle";
-            this.dgBookTitle.ReadOnly = true;
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.White;
+            this.lblUsername.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F);
+            this.lblUsername.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblUsername.Location = new System.Drawing.Point(11, 215);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(106, 23);
+            this.lblUsername.TabIndex = 32;
+            this.lblUsername.Text = "Username";
             // 
-            // dgBookGenre
+            // btnStaff
             // 
-            this.dgBookGenre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgBookGenre.DataPropertyName = "BookGenre";
-            this.dgBookGenre.HeaderText = "Book Genre";
-            this.dgBookGenre.MinimumWidth = 6;
-            this.dgBookGenre.Name = "dgBookGenre";
-            this.dgBookGenre.ReadOnly = true;
+            this.btnStaff.BackColor = System.Drawing.Color.White;
+            this.btnStaff.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnStaff.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnStaff.Location = new System.Drawing.Point(30, 320);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(119, 41);
+            this.btnStaff.TabIndex = 33;
+            this.btnStaff.Text = "Staff";
+            this.btnStaff.UseVisualStyleBackColor = false;
             // 
-            // dgBookCopies
+            // lblWelcome
             // 
-            this.dgBookCopies.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgBookCopies.DataPropertyName = "BookCopies";
-            this.dgBookCopies.HeaderText = "Book Quantity";
-            this.dgBookCopies.MinimumWidth = 6;
-            this.dgBookCopies.Name = "dgBookCopies";
-            this.dgBookCopies.ReadOnly = true;
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.White;
+            this.lblWelcome.Font = new System.Drawing.Font("Lucida Sans Unicode", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblWelcome.Location = new System.Drawing.Point(7, 164);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(169, 40);
+            this.lblWelcome.TabIndex = 30;
+            this.lblWelcome.Text = "Welcome!";
             // 
-            // gbBook
+            // btnBooks
             // 
-            this.gbBook.Controls.Add(this.btnUpdateBook);
-            this.gbBook.Controls.Add(this.btnClear);
-            this.gbBook.Controls.Add(this.pbLogo);
-            this.gbBook.Controls.Add(this.txtBookQty);
-            this.gbBook.Controls.Add(this.lblBookQty);
-            this.gbBook.Controls.Add(this.btnDeleteBook);
-            this.gbBook.Controls.Add(this.txtBookGenre);
-            this.gbBook.Controls.Add(this.lblBookGenre);
-            this.gbBook.Controls.Add(this.txtBookTitle);
-            this.gbBook.Controls.Add(this.lblBookTitle);
-            this.gbBook.Controls.Add(this.btnAddBook);
-            this.gbBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F);
-            this.gbBook.ForeColor = System.Drawing.Color.White;
-            this.gbBook.Location = new System.Drawing.Point(20, 7);
-            this.gbBook.Name = "gbBook";
-            this.gbBook.Size = new System.Drawing.Size(634, 287);
-            this.gbBook.TabIndex = 5;
-            this.gbBook.TabStop = false;
-            this.gbBook.Text = "LibraLearnBooks";
+            this.btnBooks.BackColor = System.Drawing.Color.White;
+            this.btnBooks.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnBooks.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnBooks.Location = new System.Drawing.Point(30, 275);
+            this.btnBooks.Name = "btnBooks";
+            this.btnBooks.Size = new System.Drawing.Size(119, 41);
+            this.btnBooks.TabIndex = 31;
+            this.btnBooks.Text = "Books";
+            this.btnBooks.UseVisualStyleBackColor = false;
             // 
-            // btnUpdateBook
+            // pbProfile
             // 
-            this.btnUpdateBook.BackColor = System.Drawing.Color.White;
-            this.btnUpdateBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnUpdateBook.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnUpdateBook.Location = new System.Drawing.Point(181, 232);
-            this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(122, 40);
-            this.btnUpdateBook.TabIndex = 14;
-            this.btnUpdateBook.Text = "UPDATE BOOK";
-            this.btnUpdateBook.UseVisualStyleBackColor = false;
+            this.pbProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbProfile.Image")));
+            this.pbProfile.Location = new System.Drawing.Point(15, 21);
+            this.pbProfile.Name = "pbProfile";
+            this.pbProfile.Size = new System.Drawing.Size(151, 140);
+            this.pbProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfile.TabIndex = 29;
+            this.pbProfile.TabStop = false;
             // 
-            // btnClear
+            // gpBooks
             // 
-            this.btnClear.BackColor = System.Drawing.Color.White;
-            this.btnClear.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnClear.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnClear.Location = new System.Drawing.Point(468, 232);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(122, 40);
-            this.btnClear.TabIndex = 13;
-            this.btnClear.Text = "CLEAR TEXT";
-            this.btnClear.UseVisualStyleBackColor = false;
+            this.gpBooks.Controls.Add(this.pbLogo);
+            this.gpBooks.Controls.Add(this.btnResetText);
+            this.gpBooks.Controls.Add(this.btnDeleteBook);
+            this.gpBooks.Controls.Add(this.btnUpdateBook);
+            this.gpBooks.Controls.Add(this.btnCreateBook);
+            this.gpBooks.Controls.Add(this.txtBookTitle);
+            this.gpBooks.Controls.Add(this.lblBookTitle);
+            this.gpBooks.Controls.Add(this.txtBookGenre);
+            this.gpBooks.Controls.Add(this.lblBookGenre);
+            this.gpBooks.Controls.Add(this.lblAuthorName);
+            this.gpBooks.Controls.Add(this.txtBookQty);
+            this.gpBooks.Controls.Add(this.txtAuthorName);
+            this.gpBooks.Controls.Add(this.lblBookCopies);
+            this.gpBooks.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F);
+            this.gpBooks.ForeColor = System.Drawing.Color.White;
+            this.gpBooks.Location = new System.Drawing.Point(18, 13);
+            this.gpBooks.Name = "gpBooks";
+            this.gpBooks.Size = new System.Drawing.Size(740, 239);
+            this.gpBooks.TabIndex = 45;
+            this.gpBooks.TabStop = false;
+            this.gpBooks.Text = "Books";
             // 
-            // pbLogo
+            // btnResetText
             // 
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(395, 54);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(195, 156);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
-            // 
-            // txtBookQty
-            // 
-            this.txtBookQty.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F);
-            this.txtBookQty.Location = new System.Drawing.Point(39, 182);
-            this.txtBookQty.Name = "txtBookQty";
-            this.txtBookQty.Size = new System.Drawing.Size(314, 28);
-            this.txtBookQty.TabIndex = 12;
-            // 
-            // lblBookQty
-            // 
-            this.lblBookQty.AutoSize = true;
-            this.lblBookQty.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.lblBookQty.Location = new System.Drawing.Point(25, 158);
-            this.lblBookQty.Name = "lblBookQty";
-            this.lblBookQty.Size = new System.Drawing.Size(126, 21);
-            this.lblBookQty.TabIndex = 11;
-            this.lblBookQty.Text = "Book Quantity";
+            this.btnResetText.BackColor = System.Drawing.Color.White;
+            this.btnResetText.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnResetText.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnResetText.Location = new System.Drawing.Point(495, 112);
+            this.btnResetText.Name = "btnResetText";
+            this.btnResetText.Size = new System.Drawing.Size(75, 37);
+            this.btnResetText.TabIndex = 47;
+            this.btnResetText.Text = "Reset";
+            this.btnResetText.UseVisualStyleBackColor = false;
+            this.btnResetText.Click += new System.EventHandler(this.btnResetText_Click);
             // 
             // btnDeleteBook
             // 
             this.btnDeleteBook.BackColor = System.Drawing.Color.White;
             this.btnDeleteBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
             this.btnDeleteBook.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnDeleteBook.Location = new System.Drawing.Point(323, 232);
+            this.btnDeleteBook.Location = new System.Drawing.Point(405, 112);
             this.btnDeleteBook.Name = "btnDeleteBook";
-            this.btnDeleteBook.Size = new System.Drawing.Size(122, 40);
-            this.btnDeleteBook.TabIndex = 3;
-            this.btnDeleteBook.Text = "DELETE BOOK";
+            this.btnDeleteBook.Size = new System.Drawing.Size(75, 37);
+            this.btnDeleteBook.TabIndex = 46;
+            this.btnDeleteBook.Text = "Delete";
             this.btnDeleteBook.UseVisualStyleBackColor = false;
+            this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
-            // txtBookGenre
+            // btnUpdateBook
             // 
-            this.txtBookGenre.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F);
-            this.txtBookGenre.Location = new System.Drawing.Point(39, 117);
-            this.txtBookGenre.Name = "txtBookGenre";
-            this.txtBookGenre.Size = new System.Drawing.Size(314, 28);
-            this.txtBookGenre.TabIndex = 10;
+            this.btnUpdateBook.BackColor = System.Drawing.Color.White;
+            this.btnUpdateBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnUpdateBook.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnUpdateBook.Location = new System.Drawing.Point(495, 46);
+            this.btnUpdateBook.Name = "btnUpdateBook";
+            this.btnUpdateBook.Size = new System.Drawing.Size(75, 37);
+            this.btnUpdateBook.TabIndex = 45;
+            this.btnUpdateBook.Text = "Update";
+            this.btnUpdateBook.UseVisualStyleBackColor = false;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
-            // lblBookGenre
+            // btnCreateBook
             // 
-            this.lblBookGenre.AutoSize = true;
-            this.lblBookGenre.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.lblBookGenre.Location = new System.Drawing.Point(25, 93);
-            this.lblBookGenre.Name = "lblBookGenre";
-            this.lblBookGenre.Size = new System.Drawing.Size(106, 21);
-            this.lblBookGenre.TabIndex = 9;
-            this.lblBookGenre.Text = "Book Genre";
+            this.btnCreateBook.BackColor = System.Drawing.Color.White;
+            this.btnCreateBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
+            this.btnCreateBook.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnCreateBook.Location = new System.Drawing.Point(405, 46);
+            this.btnCreateBook.Name = "btnCreateBook";
+            this.btnCreateBook.Size = new System.Drawing.Size(75, 37);
+            this.btnCreateBook.TabIndex = 44;
+            this.btnCreateBook.Text = "Create";
+            this.btnCreateBook.UseVisualStyleBackColor = false;
+            this.btnCreateBook.Click += new System.EventHandler(this.btnCreateBook_Click);
             // 
             // txtBookTitle
             // 
-            this.txtBookTitle.Font = new System.Drawing.Font("Lucida Sans Unicode", 8F);
-            this.txtBookTitle.Location = new System.Drawing.Point(39, 58);
+            this.txtBookTitle.BackColor = System.Drawing.Color.White;
+            this.txtBookTitle.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtBookTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txtBookTitle.Location = new System.Drawing.Point(160, 46);
             this.txtBookTitle.Name = "txtBookTitle";
-            this.txtBookTitle.Size = new System.Drawing.Size(314, 28);
-            this.txtBookTitle.TabIndex = 6;
+            this.txtBookTitle.Size = new System.Drawing.Size(230, 33);
+            this.txtBookTitle.TabIndex = 29;
             // 
             // lblBookTitle
             // 
             this.lblBookTitle.AutoSize = true;
             this.lblBookTitle.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
-            this.lblBookTitle.Location = new System.Drawing.Point(25, 34);
+            this.lblBookTitle.ForeColor = System.Drawing.Color.White;
+            this.lblBookTitle.Location = new System.Drawing.Point(22, 52);
             this.lblBookTitle.Name = "lblBookTitle";
             this.lblBookTitle.Size = new System.Drawing.Size(94, 21);
-            this.lblBookTitle.TabIndex = 5;
+            this.lblBookTitle.TabIndex = 37;
             this.lblBookTitle.Text = "Book Title";
             // 
-            // btnAddBook
+            // txtBookGenre
             // 
-            this.btnAddBook.BackColor = System.Drawing.Color.White;
-            this.btnAddBook.Font = new System.Drawing.Font("Lucida Sans Unicode", 7.8F);
-            this.btnAddBook.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnAddBook.Location = new System.Drawing.Point(39, 232);
-            this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(122, 40);
-            this.btnAddBook.TabIndex = 2;
-            this.btnAddBook.Text = "ADD BOOK";
-            this.btnAddBook.UseVisualStyleBackColor = false;
+            this.txtBookGenre.BackColor = System.Drawing.Color.White;
+            this.txtBookGenre.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtBookGenre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txtBookGenre.Location = new System.Drawing.Point(160, 193);
+            this.txtBookGenre.Name = "txtBookGenre";
+            this.txtBookGenre.Size = new System.Drawing.Size(230, 33);
+            this.txtBookGenre.TabIndex = 30;
             // 
-            // pbUserProfile
+            // lblBookGenre
             // 
-            this.pbUserProfile.Image = ((System.Drawing.Image)(resources.GetObject("pbUserProfile.Image")));
-            this.pbUserProfile.Location = new System.Drawing.Point(33, 27);
-            this.pbUserProfile.Name = "pbUserProfile";
-            this.pbUserProfile.Size = new System.Drawing.Size(142, 126);
-            this.pbUserProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbUserProfile.TabIndex = 9;
-            this.pbUserProfile.TabStop = false;
+            this.lblBookGenre.AutoSize = true;
+            this.lblBookGenre.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.lblBookGenre.ForeColor = System.Drawing.Color.White;
+            this.lblBookGenre.Location = new System.Drawing.Point(22, 196);
+            this.lblBookGenre.Name = "lblBookGenre";
+            this.lblBookGenre.Size = new System.Drawing.Size(106, 21);
+            this.lblBookGenre.TabIndex = 41;
+            this.lblBookGenre.Text = "Book Genre";
             // 
-            // lblWelcome
+            // lblAuthorName
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Lucida Sans Unicode", 20F);
-            this.lblWelcome.Location = new System.Drawing.Point(12, 156);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(176, 42);
-            this.lblWelcome.TabIndex = 11;
-            this.lblWelcome.Text = "Welcome,";
+            this.lblAuthorName.AutoSize = true;
+            this.lblAuthorName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.lblAuthorName.ForeColor = System.Drawing.Color.White;
+            this.lblAuthorName.Location = new System.Drawing.Point(22, 94);
+            this.lblAuthorName.Name = "lblAuthorName";
+            this.lblAuthorName.Size = new System.Drawing.Size(120, 21);
+            this.lblAuthorName.TabIndex = 39;
+            this.lblAuthorName.Text = "Author Name";
             // 
-            // lblUsernameProfile
+            // txtBookQty
             // 
-            this.lblUsernameProfile.AutoSize = true;
-            this.lblUsernameProfile.Font = new System.Drawing.Font("Lucida Sans Unicode", 15F);
-            this.lblUsernameProfile.Location = new System.Drawing.Point(19, 198);
-            this.lblUsernameProfile.Name = "lblUsernameProfile";
-            this.lblUsernameProfile.Size = new System.Drawing.Size(156, 31);
-            this.lblUsernameProfile.TabIndex = 10;
-            this.lblUsernameProfile.Text = "placeholder";
+            this.txtBookQty.BackColor = System.Drawing.Color.White;
+            this.txtBookQty.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtBookQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txtBookQty.Location = new System.Drawing.Point(160, 143);
+            this.txtBookQty.Name = "txtBookQty";
+            this.txtBookQty.Size = new System.Drawing.Size(230, 33);
+            this.txtBookQty.TabIndex = 31;
             // 
-            // btnMemberMenu
+            // txtAuthorName
             // 
-            this.btnMemberMenu.BackColor = System.Drawing.Color.White;
-            this.btnMemberMenu.Font = new System.Drawing.Font("Lucida Sans Unicode", 15F);
-            this.btnMemberMenu.Location = new System.Drawing.Point(-4, 392);
-            this.btnMemberMenu.Name = "btnMemberMenu";
-            this.btnMemberMenu.Size = new System.Drawing.Size(206, 57);
-            this.btnMemberMenu.TabIndex = 15;
-            this.btnMemberMenu.Text = "Members";
-            this.btnMemberMenu.UseVisualStyleBackColor = false;
+            this.txtAuthorName.BackColor = System.Drawing.Color.White;
+            this.txtAuthorName.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.txtAuthorName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.txtAuthorName.Location = new System.Drawing.Point(160, 91);
+            this.txtAuthorName.Name = "txtAuthorName";
+            this.txtAuthorName.Size = new System.Drawing.Size(230, 33);
+            this.txtAuthorName.TabIndex = 32;
             // 
-            // btnTransactionMenu
+            // lblBookCopies
             // 
-            this.btnTransactionMenu.BackColor = System.Drawing.Color.White;
-            this.btnTransactionMenu.Font = new System.Drawing.Font("Lucida Sans Unicode", 15F);
-            this.btnTransactionMenu.Location = new System.Drawing.Point(-4, 455);
-            this.btnTransactionMenu.Name = "btnTransactionMenu";
-            this.btnTransactionMenu.Size = new System.Drawing.Size(206, 57);
-            this.btnTransactionMenu.TabIndex = 14;
-            this.btnTransactionMenu.Text = "Transactions";
-            this.btnTransactionMenu.UseVisualStyleBackColor = false;
+            this.lblBookCopies.AutoSize = true;
+            this.lblBookCopies.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F);
+            this.lblBookCopies.ForeColor = System.Drawing.Color.White;
+            this.lblBookCopies.Location = new System.Drawing.Point(20, 143);
+            this.lblBookCopies.Name = "lblBookCopies";
+            this.lblBookCopies.Size = new System.Drawing.Size(114, 21);
+            this.lblBookCopies.TabIndex = 40;
+            this.lblBookCopies.Text = "Book Copies";
             // 
-            // btnStaffMenu
+            // pbLogo
             // 
-            this.btnStaffMenu.BackColor = System.Drawing.Color.White;
-            this.btnStaffMenu.Font = new System.Drawing.Font("Lucida Sans Unicode", 15F);
-            this.btnStaffMenu.Location = new System.Drawing.Point(-4, 329);
-            this.btnStaffMenu.Name = "btnStaffMenu";
-            this.btnStaffMenu.Size = new System.Drawing.Size(206, 57);
-            this.btnStaffMenu.TabIndex = 13;
-            this.btnStaffMenu.Text = "Staffs";
-            this.btnStaffMenu.UseVisualStyleBackColor = false;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(586, 33);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(141, 140);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 48;
+            this.pbLogo.TabStop = false;
             // 
-            // btnAddUser
+            // dgvBook
             // 
-            this.btnAddUser.BackColor = System.Drawing.Color.White;
-            this.btnAddUser.Font = new System.Drawing.Font("Lucida Sans Unicode", 15F);
-            this.btnAddUser.Location = new System.Drawing.Point(-4, 266);
-            this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(206, 57);
-            this.btnAddUser.TabIndex = 12;
-            this.btnAddUser.Text = "Add Users";
-            this.btnAddUser.UseVisualStyleBackColor = false;
+            this.dgvBook.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.Location = new System.Drawing.Point(18, 267);
+            this.dgvBook.Name = "dgvBook";
+            this.dgvBook.RowHeadersWidth = 51;
+            this.dgvBook.RowTemplate.Height = 24;
+            this.dgvBook.Size = new System.Drawing.Size(740, 238);
+            this.dgvBook.TabIndex = 46;
             // 
             // frmStaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(885, 589);
-            this.Controls.Add(this.btnMemberMenu);
-            this.Controls.Add(this.btnTransactionMenu);
-            this.Controls.Add(this.btnStaffMenu);
-            this.Controls.Add(this.btnAddUser);
-            this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.lblUsernameProfile);
-            this.Controls.Add(this.pbUserProfile);
+            this.ClientSize = new System.Drawing.Size(968, 516);
+            this.Controls.Add(this.btnTransaction);
             this.Controls.Add(this.pnlBooks);
+            this.Controls.Add(this.btnMember);
+            this.Controls.Add(this.pbProfile);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.btnBooks);
+            this.Controls.Add(this.btnStaff);
+            this.Controls.Add(this.lblWelcome);
             this.Name = "frmStaffDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmStaffDashboard";
+            this.Load += new System.EventHandler(this.frmStaffDashboard_Load);
             this.pnlBooks.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
-            this.gbBook.ResumeLayout(false);
-            this.gbBook.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfile)).EndInit();
+            this.gpBooks.ResumeLayout(false);
+            this.gpBooks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,29 +364,27 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlBooks;
-        private System.Windows.Forms.DataGridView dgvBook;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgBookId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgBookTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgBookGenre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgBookCopies;
-        private System.Windows.Forms.GroupBox gbBook;
-        private System.Windows.Forms.Button btnUpdateBook;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.TextBox txtBookQty;
-        private System.Windows.Forms.Label lblBookQty;
+        private System.Windows.Forms.Button btnTransaction;
+        private System.Windows.Forms.Button btnMember;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Button btnStaff;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Button btnBooks;
+        private System.Windows.Forms.PictureBox pbProfile;
+        private System.Windows.Forms.GroupBox gpBooks;
+        private System.Windows.Forms.Button btnResetText;
         private System.Windows.Forms.Button btnDeleteBook;
-        private System.Windows.Forms.TextBox txtBookGenre;
-        private System.Windows.Forms.Label lblBookGenre;
+        private System.Windows.Forms.Button btnUpdateBook;
+        private System.Windows.Forms.Button btnCreateBook;
         private System.Windows.Forms.TextBox txtBookTitle;
         private System.Windows.Forms.Label lblBookTitle;
-        private System.Windows.Forms.Button btnAddBook;
-        private System.Windows.Forms.PictureBox pbUserProfile;
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label lblUsernameProfile;
-        private System.Windows.Forms.Button btnMemberMenu;
-        private System.Windows.Forms.Button btnTransactionMenu;
-        private System.Windows.Forms.Button btnStaffMenu;
-        private System.Windows.Forms.Button btnAddUser;
+        private System.Windows.Forms.TextBox txtBookGenre;
+        private System.Windows.Forms.Label lblBookGenre;
+        private System.Windows.Forms.Label lblAuthorName;
+        private System.Windows.Forms.TextBox txtBookQty;
+        private System.Windows.Forms.TextBox txtAuthorName;
+        private System.Windows.Forms.Label lblBookCopies;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.DataGridView dgvBook;
     }
 }

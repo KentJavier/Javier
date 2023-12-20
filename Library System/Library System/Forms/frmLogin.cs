@@ -49,7 +49,7 @@ namespace Library_System
                             break;
 
                         case UserRole.Staff:
-                            frmStaffDashboard staffDashboard = new frmStaffDashboard();
+                            frmStaffDashboard staffDashboard = new frmStaffDashboard(UserRole.Staff, username);
                             this.Hide();
                             staffDashboard.ShowDialog();
                             this.Close();
