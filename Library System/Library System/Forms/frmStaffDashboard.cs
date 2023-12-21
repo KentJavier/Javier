@@ -79,7 +79,6 @@ namespace Library_System
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@BookTitle", txtBookTitle.Text);
-                        cmd.Parameters.AddWithValue("@AuthorName", txtAuthorName.Text);
                         cmd.Parameters.AddWithValue("@BookGenre", txtBookGenre.Text);
                         cmd.Parameters.AddWithValue("@BookCopies", txtBookQty.Text);
 
@@ -112,7 +111,6 @@ namespace Library_System
 
                             cmd.Parameters.AddWithValue("@BookID", bookIdToUpdate);
                             cmd.Parameters.AddWithValue("@BookTitle", txtBookTitle.Text);
-                            cmd.Parameters.AddWithValue("@AuthorName", txtAuthorName.Text);
                             cmd.Parameters.AddWithValue("@BookGenre", txtBookGenre.Text);
                             cmd.Parameters.AddWithValue("@BookCopies", txtBookQty.Text);
 
@@ -169,7 +167,7 @@ namespace Library_System
 
         private void btnResetText_Click(object sender, EventArgs e)
         {
-            txtBookTitle.Text = txtAuthorName.Text = txtBookGenre.Text = txtBookQty.Text = string.Empty;
+            txtBookTitle.Text =  txtBookGenre.Text = txtBookQty.Text = string.Empty;
         }
 
         private void dgvBook_SelectionChanged(object sender, EventArgs e)
@@ -195,7 +193,6 @@ namespace Library_System
                                 var row = dt.Rows[0];
 
                                 txtBookTitle.Text = row["BookTitle"].ToString();
-                                txtAuthorName.Text = row["AuthorName"].ToString();
                                 txtBookGenre.Text = row["BookGenre"].ToString();
                                 txtBookQty.Text = row["BookCopies"].ToString();
                             }

@@ -1,6 +1,7 @@
 CREATE DATABASE LibrarySystem
 
 USE LibrarySystem
+
 /* To reset the Id of the following tables below */
 DBCC CHECKIDENT ('Admins', RESEED, 0);
 DBCC CHECKIDENT ('Staffs', RESEED, 0);
@@ -52,12 +53,11 @@ FROM
 	Members	
 
 -- To view Books Table
-CREATE VIEW vwBooks
+ALTER VIEW vwBooks
 AS
 SELECT
     BookId,
     BookTitle,
-    AuthorName,
     BookGenre,
     BookCopies
 FROM
@@ -222,17 +222,16 @@ BEGIN
 END;
 
 -- To insert values in Books table
-CREATE PROCEDURE spInsertBook
+ALTER PROCEDURE spInsertBook
 (
     @BookTitle varchar(50),
-    @AuthorName varchar(50),
     @BookGenre varchar(50),
     @BookCopies int
 )
 AS
 BEGIN
-    INSERT INTO Books (BookTitle, AuthorName, BookGenre, BookCopies)
-    VALUES (@BookTitle, @AuthorName, @BookGenre, @BookCopies);
+    INSERT INTO Books (BookTitle, BookGenre, BookCopies)
+    VALUES (@BookTitle, @BookGenre, @BookCopies);
 END;
 
 -- To delete values
@@ -251,7 +250,6 @@ CREATE PROCEDURE spUpdateBook
 (
     @BookId int,
     @BookTitle varchar(50),
-    @AuthorName varchar(50),
     @BookGenre varchar(50),
     @BookCopies int
 )
@@ -260,7 +258,6 @@ BEGIN
     UPDATE Books
     SET
         BookTitle = @BookTitle,
-        AuthorName = @AuthorName,
         BookGenre = @BookGenre,
         BookCopies = @BookCopies
     WHERE
